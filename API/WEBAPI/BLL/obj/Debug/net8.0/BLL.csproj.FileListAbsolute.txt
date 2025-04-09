@@ -1,0 +1,15 @@
+D:\Code\DATN\API\WEBAPI\BLL\bin\Debug\net8.0\BLL.deps.json
+D:\Code\DATN\API\WEBAPI\BLL\bin\Debug\net8.0\BLL.dll
+D:\Code\DATN\API\WEBAPI\BLL\bin\Debug\net8.0\BLL.pdb
+D:\Code\DATN\API\WEBAPI\BLL\bin\Debug\net8.0\DAL.dll
+D:\Code\DATN\API\WEBAPI\BLL\bin\Debug\net8.0\DAL.pdb
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.csproj.AssemblyReference.cache
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.AssemblyInfoInputs.cache
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.AssemblyInfo.cs
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.csproj.CoreCompileInputs.cache
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.csproj.Up2Date
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.dll
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\refint\BLL.dll
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.pdb
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\ref\BLL.dll
