@@ -160,3 +160,4 @@ D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\refint\WEBAPI.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.pdb
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.genruntimeconfig.cache
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\ref\WEBAPI.dll
+D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.sourcelink.json

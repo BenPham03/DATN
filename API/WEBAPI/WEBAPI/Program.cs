@@ -1,6 +1,8 @@
+using BLL.Services.Base;
 using BLL.Services.TokenService;
 using DAL.Data;
 using DAL.Infatructure;
+using DAL.Interfaces;
 using DAL.Models;
 using DAL.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,7 +20,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddTransient<ITokenService, TokenService>();
+builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+builder.Services.AddScoped<FacultyService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {

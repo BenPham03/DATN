@@ -15,5 +15,6 @@ namespace DAL.Models
 		public Guid? FacultyId { get; set; }
 		public Faculties? Faculty { get; set; }
 		public ICollection<Lectures> Lectures { get; set; } = new List<Lectures>();
+		public ICollection<Subjects> Subjects { get; set; } = new List<Subjects>();
 	}
 }

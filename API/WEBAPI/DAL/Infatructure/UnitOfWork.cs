@@ -1,4 +1,5 @@
 ﻿using DAL.Data;
+using DAL.Interfaces;
 using DAL.Repository;
 using System;
 using System.Collections.Concurrent;
@@ -19,6 +20,8 @@ namespace DAL.Infatructure
 			_context = context;
 		}
 		public AppDbContext Context => _context;
+
+		public IFacultyRepository Faculty { get; private set; }
 
 		public async Task BeginTransactionAsync()
 		{

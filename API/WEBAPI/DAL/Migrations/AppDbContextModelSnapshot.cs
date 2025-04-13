@@ -312,7 +312,10 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Credits")
+                    b.Property<Guid?>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PracticeCredits")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("SpecializationId")
@@ -326,7 +329,12 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TheoryCredits")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("SpecializationId");
 
@@ -580,10 +588,17 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Subjects", b =>
                 {
+                    b.HasOne("DAL.Models.Departments", "Department")
+                        .WithMany("Subjects")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("DAL.Models.Specializations", "Specialization")
                         .WithMany("Subjects")
                         .HasForeignKey("SpecializationId")
                         .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Department");
 
                     b.Navigation("Specialization");
                 });
@@ -647,6 +662,8 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Models.Departments", b =>
                 {
                     b.Navigation("Lectures");
+
+                    b.Navigation("Subjects");
                 });
 
             modelBuilder.Entity("DAL.Models.Faculties", b =>

@@ -13,3 +13,4 @@ D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.dll
 D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\refint\BLL.dll
 D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.pdb
 D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\ref\BLL.dll
+D:\Code\DATN\API\WEBAPI\BLL\obj\Debug\net8.0\BLL.sourcelink.json

@@ -131,7 +131,15 @@ namespace DAL.Data
 				.HasOne(cs => cs.Subject)
 				.WithMany(s => s.CurriculumSubjects)
 				.HasForeignKey(cs => cs.SubjectId)
-				.OnDelete(DeleteBehavior.Cascade); 
+				.OnDelete(DeleteBehavior.Cascade);
+
+			//--------------------- Subject Configuration ------------------------
+
+			builder.Entity<Subjects>()
+				.HasOne(s => s.Department)
+				.WithMany(d => d.Subjects)
+				.HasForeignKey(s => s.DepartmentId)
+				.OnDelete(DeleteBehavior.SetNull); 
 
 			//--------------------- Enum Configuration ------------------------
 

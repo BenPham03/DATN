@@ -1,0 +1,66 @@
+<div class="sidebar">
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm…" />
+      <button><i class="fa fa-search">
+      </i></button>
+    </div>
+  
+    <div class="menu">
+      <!-- <div
+        class="menu-item"
+        [class.active]="activeMenu === 'faculty '"
+        (click)="setActive('faculty ')"
+      >
+        <i class="fa fa-users-cog"></i> Quản lý khoa
+        <span class="arrow" *ngIf="activeMenu === 'faculty '"></span>
+      </div> -->
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'subject'"
+        (click)="setActive('subject')"
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý môn học
+        <span class="arrow" *ngIf="activeMenu === 'subject'"></span>
+      </div>
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'major'"
+        (click)="setActive('major')"
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý ngành
+        <span class="arrow" *ngIf="activeMenu === 'mjao'"></span>
+      </div>
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'specialization'"
+        (click)="setActive('specialization')"
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý chuyên ngành
+        <span class="arrow" *ngIf="activeMenu === 'specialization'"></span>
+      </div>
+
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'department'"
+        (click)="setActive('department')"
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý bộ môn
+        <span class="arrow" *ngIf="activeMenu === 'department'"></span>
+      </div>
+
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'Curriculum'"
+        (click)="setActive('Curriculum')"
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý chương trình giảng dạy
+        <span class="arrow" *ngIf="activeMenu === 'Curriculum'"></span>
+      </div>
+      
+    </div>
+  
+    <div class="collapse">
+      <i class="fa fa-angle-double-left"></i>
+    </div>
+  </div>
+  

@@ -12,3 +12,4 @@ D:\Code\DATN\API\WEBAPI\DAL\obj\Debug\net8.0\refint\DAL.dll
 D:\Code\DATN\API\WEBAPI\DAL\obj\Debug\net8.0\DAL.pdb
 D:\Code\DATN\API\WEBAPI\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
 D:\Code\DATN\API\WEBAPI\DAL\obj\Debug\net8.0\ref\DAL.dll
+D:\Code\DATN\API\WEBAPI\DAL\obj\Debug\net8.0\DAL.sourcelink.json

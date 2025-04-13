@@ -46,5 +46,31 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.FacultyController",
+    "Method": "Get",
+    "RelativePath": "faculty",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.FacultyController",
+    "Method": "Create",
+    "RelativePath": "faculty/createFaculty",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.Faculty.CreateFacultyRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
