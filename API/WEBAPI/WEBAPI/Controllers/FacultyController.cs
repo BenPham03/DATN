@@ -1,6 +1,6 @@
 ﻿using BLL.Dto.Faculty;
 using BLL.Mapper;
-using BLL.Services.Base;
+using BLL.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WEBAPI.Controllers
@@ -14,7 +14,7 @@ namespace WEBAPI.Controllers
 		{
 			_facultyService = facultyService;
 		}
-		[HttpGet]
+		[HttpGet("get-faculty")]
 		public async Task<IActionResult> Get()
 		{
 			return Ok(await _facultyService.GetAsync());

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

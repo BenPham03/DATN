@@ -1,4 +1,4 @@
-using BLL.Services.Base;
+using BLL.Services;
 using BLL.Services.TokenService;
 using DAL.Data;
 using DAL.Infatructure;
@@ -18,11 +18,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+//Inject Service Dependencies
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+builder.Services.AddScoped<IMajorRepository, MajorRepository>();
+
+
 builder.Services.AddScoped<FacultyService>();
+builder.Services.AddScoped<MajorService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
@@ -69,6 +74,8 @@ builder.Services.AddAuthentication(options =>
 	};
 });
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,6 +84,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(configurePolicy =>
+{
+	configurePolicy.WithOrigins(["http://localhost:4200", "http://localhost:7111"]);
+	configurePolicy.AllowAnyHeader();
+	configurePolicy.AllowAnyMethod();
+	configurePolicy.AllowCredentials();
+});
 
 app.UseHttpsRedirection();
 

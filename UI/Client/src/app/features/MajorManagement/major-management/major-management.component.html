@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Ngành Học</h1>
+    <app-add-major></app-add-major>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên ngành</th>
+        <th>Mô tả</th>
+        <th>Khoa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let major of majors">
+        <td>{{major.name}}</td>
+        <td>{{major.description}}</td>
+        <td>{{major.faculty.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
