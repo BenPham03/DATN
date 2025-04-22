@@ -1,4 +1,4 @@
-﻿using DAL.Models;
+﻿	using DAL.Models;
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,5 +10,6 @@ namespace DAL.Interfaces
 {
 	public interface IMajorRepository : IGenericRepository<Majors>
 	{
+
 	}
 }

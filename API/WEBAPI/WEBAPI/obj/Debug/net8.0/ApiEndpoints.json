@@ -49,16 +49,6 @@
   },
   {
     "ContainingType": "WEBAPI.Controllers.FacultyController",
-    "Method": "Get",
-    "RelativePath": "faculty",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WEBAPI.Controllers.FacultyController",
     "Method": "Create",
     "RelativePath": "faculty/createFaculty",
     "HttpMethod": "POST",
@@ -71,6 +61,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.FacultyController",
+    "Method": "Get",
+    "RelativePath": "faculty/get-faculty",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -91,12 +91,44 @@
   },
   {
     "ContainingType": "WEBAPI.Controllers.MajorController",
+    "Method": "Delete",
+    "RelativePath": "major/delete-major",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.RequestMajorDeleteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.MajorController",
     "Method": "GetAll",
     "RelativePath": "major/get-all-major",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.MajorController",
+    "Method": "Update",
+    "RelativePath": "major/update-major",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.RequestMajorUpdateDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

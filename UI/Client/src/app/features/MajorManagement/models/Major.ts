@@ -1,8 +1,10 @@
 import { Faculty } from "./Faculty"
 
 export interface MajorDto{
+    id : string
     name: string,
     description: string,
+    facultyId : string,
     faculty: {
         name :string
     }
@@ -27,4 +29,17 @@ export interface MajorCreateDto{
     name: string,
     description: string,
     facultyId: string
+}
+
+export interface MajorUpdateDto{
+  id: string
+  name: string,
+  description: string,
+  facultyId: string
+}
+export interface MajorDeleteDto{
+  id: string
+  name: string,
+  description: string,
+  facultyId: string
 }

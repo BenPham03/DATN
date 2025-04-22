@@ -5,6 +5,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    
   }
 
   th, td {
@@ -41,7 +42,15 @@ table {
     color: #fff;
     border-radius: 10px;
   }
-
+  .deleteButton{
+    width: 70px;
+    height: 40px;
+    font-size: 16px;
+    border: #fff 0 solid;
+    background-color: #f32525;
+    color: #fff;
+    border-radius: 10px;
+  }
   .title-bar {
     display: flex;
     justify-content: space-between;

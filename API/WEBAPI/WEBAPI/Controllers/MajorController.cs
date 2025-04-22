@@ -1,6 +1,7 @@
 ﻿using BLL.Dto;
 using BLL.Mapper;
 using BLL.Services;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WEBAPI.Controllers
@@ -31,6 +32,28 @@ namespace WEBAPI.Controllers
 			var newMajor = model.ToMajorFromCreate();
 			await _majorService.AddAsync(newMajor);
 			return Created();
+		}
+		[HttpPut("update-major")]
+		public async Task<IActionResult> Update([FromBody] RequestMajorUpdateDto model)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var major = model.ToMajorFromUpdate();
+			await _majorService.UpdateAsync(major);
+			return NoContent();
+		}
+		[HttpDelete("delete-major")]
+		public async Task<IActionResult> Delete([FromBody] RequestMajorDeleteDto model)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var major = model.ToMajorFromDelete();
+			await _majorService.DeleteAsync(major);
+			return NoContent();
 		}
 	}
 }

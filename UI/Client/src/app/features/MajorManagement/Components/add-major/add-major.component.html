@@ -22,7 +22,7 @@
         <label for="faculty">Khoa</label>
         <select id="faculty" [(ngModel)]="major.facultyId" name="faculty" required>
           <option value="">-- Chọn khoa --</option>
-          <option *ngFor="let f of faculties" [value]="f.id" [(ngModel)] = "major.facultyId">{{ f.name }}</option>
+          <option *ngFor="let f of faculties" [value]="f.id" [(ngModel)] = "major.facultyId" name = "facultyId">{{ f.name }}</option>
         </select>
       </div>
 

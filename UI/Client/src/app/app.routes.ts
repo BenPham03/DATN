@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/Home/home/home.component';
-import { MajorManagementComponent } from './features/MajorManagement/major-management/major-management.component';
-import { AddMajorComponent } from './features/MajorManagement/add-major/add-major.component';
+import { MajorManagementComponent } from './features/MajorManagement/Components/major-management/major-management.component';
+import { AddMajorComponent } from './features/MajorManagement/Components/add-major/add-major.component';
 
 export const routes: Routes = [
     {

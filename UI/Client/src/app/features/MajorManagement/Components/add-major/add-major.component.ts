@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "../../../core/components/header/header.component";
-import { NavComponent } from "../../../core/components/nav/nav.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Faculty } from '../models/Faculty';
-import { MajorCreateDto } from '../models/Major';
-import { MajorService } from '../services/major-service.service';
 import { Router } from '@angular/router';
+import { MajorCreateDto } from '../../models/Major';
+import { Faculty } from '../../models/Faculty';
+import { MajorService } from '../../services/major-service.service';
 
 @Component({
   selector: 'app-add-major',

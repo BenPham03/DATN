@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetFacultyResponse, MajorCreateDto, MajorDto, Response } from '../models/Major';
+import { GetFacultyResponse, MajorCreateDto, MajorDeleteDto, MajorDto, MajorUpdateDto, Response } from '../models/Major';
 import { Observable } from 'rxjs';
 import { Base_Url } from '../../../app.config';
 import { Faculty } from '../models/Faculty';
@@ -19,5 +19,13 @@ export class MajorService {
   }
   addMajor(major : MajorCreateDto):Observable<GetFacultyResponse>{
     return this.http.post<GetFacultyResponse>(`${Base_Url}/major/add-major`,major);
+  }
+  updateMajor(major : MajorUpdateDto):Observable<any>{
+    return this.http.put<any>(`${Base_Url}/major/update-major`,major);
+  }
+  deleteMajor(major : MajorDeleteDto):Observable<any>{
+    return this.http.delete<any>(`${Base_Url}/major/delete-major`,{
+      body: major
+    });
   }
 }

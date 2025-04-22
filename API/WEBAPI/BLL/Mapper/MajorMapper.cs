@@ -19,5 +19,25 @@ namespace BLL.Mapper
 				FacultyId = model.FacultyId,
 			};
 		}
+		public static Majors ToMajorFromUpdate(this RequestMajorUpdateDto model)
+		{
+			return new Majors
+			{
+				Id = model.Id,
+				Name = model.Name,
+				Description = model.Description,
+				FacultyId = model.FacultyId,
+			};
+		}
+		public static Majors ToMajorFromDelete(this RequestMajorDeleteDto model)
+		{
+			return new Majors
+			{
+				Id = model.Id,
+				Name = model.Name,
+				Description = model.Description,
+				FacultyId = model.FacultyId,
+			};
+		}
 	}
 }
