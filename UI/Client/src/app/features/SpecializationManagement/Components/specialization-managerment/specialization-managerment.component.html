@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav></app-nav>
+<div style="flex: 1;">
+
+    <div id="container">
+        <div class="title-bar">
+          <h1 class="title">Bảng Thông Tin Các Chuyên Ngành</h1>
+          <app-add-specialization></app-add-specialization>
+          
+        </div>
+      
+        <table>
+          <thead>
+            <tr>
+              <th>Tên chuyên ngành</th>
+              <th>Mô tả</th>
+              <th>Ngành</th>
+              <th>Sửa</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let specialization of specializations">
+              <td>{{specialization.name}}</td>
+              <td>{{specialization.description}}</td>
+              <td>{{specialization.major?.name}}</td>
+              <td style="text-align: center;">
+                <app-update-specialization  [specializationI]="specialization"></app-update-specialization>
+              </td>
+              <td style="text-align: center;" (click)="deleteSpecialization(specialization)"><button class="deleteButton">Xóa</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      
+

@@ -17,8 +17,8 @@ export class MajorService {
   getAllFaculty():Observable<Faculty[]>{
     return this.http.get<Faculty[]>(`${Base_Url}/faculty/get-faculty`);
   }
-  addMajor(major : MajorCreateDto):Observable<GetFacultyResponse>{
-    return this.http.post<GetFacultyResponse>(`${Base_Url}/major/add-major`,major);
+  addMajor(major : MajorCreateDto):Observable<any>{
+    return this.http.post<any>(`${Base_Url}/major/add-major`,major);
   }
   updateMajor(major : MajorUpdateDto):Observable<any>{
     return this.http.put<any>(`${Base_Url}/major/update-major`,major);

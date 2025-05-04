@@ -24,10 +24,16 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
 builder.Services.AddScoped<IMajorRepository, MajorRepository>();
+builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
+builder.Services.AddScoped<ISpecializationRepository, SpecializationRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
 
 builder.Services.AddScoped<FacultyService>();
 builder.Services.AddScoped<MajorService>();
+builder.Services.AddScoped<SubjectService>();
+builder.Services.AddScoped<SpecializationService>();
+builder.Services.AddScoped<DepartmentService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {

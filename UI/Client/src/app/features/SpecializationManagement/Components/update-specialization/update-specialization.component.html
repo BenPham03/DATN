@@ -1,0 +1,34 @@
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Sửa ngành</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2 style="color:black">Sửa chuyên ngành</h2>
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label style = "text-align: left" for="name">Tên chuyên ngành</label>
+        <input type="text" id="name" [(ngModel)]="specializationI.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label style="text-align: left;" for="description">Mô tả</label>
+        <textarea id="description" [(ngModel)]="specializationI.description" name="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label style="text-align: left;" for="faculty">Ngành</label>
+        <select id="faculty" [(ngModel)]="specializationI.majorId" name="faculty" required>
+          <option value="">-- Chọn khoa --</option>
+          <option *ngFor="let f of majors" [value]="f.id" [(ngModel)] = "specializationI.majorId" name = "majorId">{{ f.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>
+

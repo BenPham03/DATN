@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Ngành Học</h1>
+    <app-add-department></app-add-department>
+    
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên bộ môn</th>
+        <th>Mô tả</th>
+        <th>Khoa</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let department of departments">
+        <td>{{department.name}}</td>
+        <td>{{department.description}}</td>
+        <td>{{department.faculty.name}}</td>
+        <td style="text-align: center;">
+          <app-update-department  [DepartmentM]="department"></app-update-department>
+        </td>
+        <td style="text-align: center;" (click)="deleteDepartment(department)"><button class="deleteButton">Xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

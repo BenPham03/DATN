@@ -22,6 +22,10 @@ namespace DAL.Infatructure
 		public AppDbContext Context => _context;
 
 		public IFacultyRepository Faculty { get; private set; }
+		public ISubjectRepository Subject { get; private set; }
+
+		public ISpecializationRepository Specialization { get; private set; }
+		public IDepartmentRepository Department { get; private set; }
 
 		public async Task BeginTransactionAsync()
 		{

@@ -13,6 +13,9 @@ namespace DAL.Infatructure
 	{
 		AppDbContext Context { get; }
 		IFacultyRepository Faculty { get; }
+		ISubjectRepository Subject { get; }
+		ISpecializationRepository Specialization { get; }
+		IDepartmentRepository Department { get; }
 		GenericRepository<TEntity> GenericRepository<TEntity>() where TEntity : class;
 		int SaveChanges();
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

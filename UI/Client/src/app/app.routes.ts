@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './features/Home/home/home.component';
 import { MajorManagementComponent } from './features/MajorManagement/Components/major-management/major-management.component';
 import { AddMajorComponent } from './features/MajorManagement/Components/add-major/add-major.component';
+import { SpecializationManagermentComponent } from './features/SpecializationManagement/Components/specialization-managerment/specialization-managerment.component';
+import { DepartmentManagementComponent } from './features/Department/Components/department-management/department-management.component';
 
 export const routes: Routes = [
     {
@@ -13,7 +15,11 @@ export const routes: Routes = [
         component: MajorManagementComponent,
     },
     {
-        path: 'addMajor',
-        component: AddMajorComponent,
+        path: 'specialization',
+        component: SpecializationManagermentComponent
+    },
+    {
+        path: 'department',
+        component: DepartmentManagementComponent,
     }
 ];
