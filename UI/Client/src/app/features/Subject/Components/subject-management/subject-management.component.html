@@ -1,1 +1,41 @@
-<p>subject-management works!</p>
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Ngành Học</h1>
+    <app-add-subject></app-add-subject>
+    
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên môn học</th>
+        <th>Mã môn học</th>
+        <th>Số tín chỉ lý thuyết</th>
+        <th>Số tín chỉ thực hành</th>
+        <th>Chuyên ngành</th>
+        <th>Bộ môn</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let subject of subjects">
+        <td>{{subject.subjectName}}</td>
+        <td>{{subject.subjectCode}}</td>
+        <td>{{subject.theoryCredits}}</td>
+        <td>{{subject.practiceCredits}}</td>
+        <td>{{subject.specialization.name}}</td>
+        <td>{{subject.department.name}}</td>
+        <td style="text-align: center;">
+          <app-update-subject  [SubjectM]="subject"></app-update-subject>
+        </td>
+        <td style="text-align: center;" (click)="deleteSubject(subject)"><button class="deleteButton">Xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

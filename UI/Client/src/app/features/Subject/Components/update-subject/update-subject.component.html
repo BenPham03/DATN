@@ -1,1 +1,52 @@
-<p>update-subject works!</p>
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Update môn học</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Thêm bộ môn mới</h2>
+
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Tên môn học</label>
+        <input type="text" id="name" [(ngModel)]="SubjectM.subjectName" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="subjectCode">Mã môn học</label>
+        <input type="text" id="subjectCode" [(ngModel)]="SubjectM.subjectCode" name="subjectCode" required>
+      </div>
+
+      <div class="form-group">
+        <label for="theoryCredits">Số tín chỉ lý thuyết</label>
+        <input type="number" id="theoryCredits" [(ngModel)]="SubjectM.theoryCredits" name="theoryCredits" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="practiceCredits">Số tín chỉ thực hành</label>
+        <input type="number" id="practiceCredits" [(ngModel)]="SubjectM.practiceCredits" name="practiceCredits" required>
+      </div>
+
+      <div class="form-group">
+        <label for="specialization">Chuyên ngành</label>
+        <select id="specialization" [(ngModel)]="SubjectM.specializationId" name="specialization" required>
+          <option value="">-- Chọn chuyên ngành --</option>
+          <option *ngFor="let s of specializations" [value]="s.id" [(ngModel)] = "SubjectM.specializationId" name = "specializationId">{{ s.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Bộ môn</label>
+        <select id="department" [(ngModel)]="SubjectM.departmentId" name="department" required>
+          <option value="">-- Chọn bộ môn --</option>
+          <option *ngFor="let d of departments" [value]="d.id" [(ngModel)] = "SubjectM.departmentId" name = "departmentId">{{ d.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>

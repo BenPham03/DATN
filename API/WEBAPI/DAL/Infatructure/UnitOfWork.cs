@@ -26,6 +26,7 @@ namespace DAL.Infatructure
 
 		public ISpecializationRepository Specialization { get; private set; }
 		public IDepartmentRepository Department { get; private set; }
+		public ICurriculumRepository Curriculum { get; private set; }
 
 		public async Task BeginTransactionAsync()
 		{

@@ -4,6 +4,7 @@ import { MajorManagementComponent } from './features/MajorManagement/Components/
 import { AddMajorComponent } from './features/MajorManagement/Components/add-major/add-major.component';
 import { SpecializationManagermentComponent } from './features/SpecializationManagement/Components/specialization-managerment/specialization-managerment.component';
 import { DepartmentManagementComponent } from './features/Department/Components/department-management/department-management.component';
+import { SubjectManagementComponent } from './features/Subject/Components/subject-management/subject-management.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,9 @@ export const routes: Routes = [
     {
         path: 'department',
         component: DepartmentManagementComponent,
+    },
+    {
+        path: 'subject',
+        component: SubjectManagementComponent,
     }
 ];
