@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Base_Url } from '../../../app.config';
 import { Faculty } from '../../MajorManagement/models/Faculty';
 import { CreateDepartmentDto, DeleteDepartmentDto, DepartmentDto, UpdateDepartmentDto } from '../Models/DepartmentDto';
+import { commonDto } from '../../../core/Common/Status';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ import { CreateDepartmentDto, DeleteDepartmentDto, DepartmentDto, UpdateDepartme
 export class DepartmentService {
 
   constructor(private http : HttpClient) { }
-  getAllDepartment():Observable<Response>{
-    return this.http.get<Response>(`${Base_Url}/department/get-all`);
+  getAllDepartment(common : commonDto):Observable<Response>{
+    return this.http.post<Response>(`${Base_Url}/department/get-all`, common);
   }
   getAllFaculty():Observable<Faculty[]>{
     return this.http.get<Faculty[]>(`${Base_Url}/faculty/get-faculty`);

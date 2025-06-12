@@ -1,0 +1,45 @@
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Thêm chương trình đào tạo</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Thêm chương trình đào tạo</h2>
+
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Tên chương trình đào tạo</label>
+        <input type="text" id="name" [(ngModel)]="curriculum.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Năm học</label>
+        <textarea id="description" [(ngModel)]="curriculum.academicYear" name="description" required></textarea>
+      </div>
+      
+      <div class="form-group">
+          <label for="outputStandard">Chuẩn đầu ra</label>
+          <select id="outputStandard" [(ngModel)]="curriculum.outputStandard" name="outputStandard" required>
+            <option value="">-- Chọn chuẩn đầu ra --</option>
+            <option [value]=selectedStandard.Bachelor [(ngModel)] = "curriculum.outputStandard" name = "outputStandard">Cử nhân</option>
+            <option [value]=selectedStandard.Master [(ngModel)] = "curriculum.outputStandard" name = "outputStandard">Thạc sĩ</option>
+            <option [value]=selectedStandard.Doctoral [(ngModel)] = "curriculum.outputStandard" name = "outputStandard">Tiến sĩ</option>
+          </select>
+        </div>
+
+
+      <div class="form-group">
+        <label for="specialization">Chuyên ngành</label>
+        <select id="specialization" [(ngModel)]="curriculum.specializationId" name="specialization" required>
+          <option value="">-- Chọn chyên ngành --</option>
+          <option *ngFor="let f of specializations" [value]="f.id" [(ngModel)] = "curriculum.specializationId" name = "specializationId">{{ f.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { GetFacultyResponse, MajorCreateDto, MajorDeleteDto, MajorDto, MajorUpda
 import { Observable } from 'rxjs';
 import { Base_Url } from '../../../app.config';
 import { Faculty } from '../models/Faculty';
+import { commonDto } from '../../../core/Common/Status';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ import { Faculty } from '../models/Faculty';
 export class MajorService {
 
   constructor(private http : HttpClient) { }
-  getAllMajor():Observable<Response>{
-    return this.http.get<Response>(`${Base_Url}/major/get-all-major`);
+  getAllMajor(status : commonDto):Observable<Response>{
+    return this.http.post<Response>(`${Base_Url}/major/get-all-major`,status);
   }
   getAllFaculty():Observable<Faculty[]>{
     return this.http.get<Faculty[]>(`${Base_Url}/faculty/get-faculty`);

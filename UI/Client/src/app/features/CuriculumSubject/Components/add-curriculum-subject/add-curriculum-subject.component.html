@@ -1,0 +1,39 @@
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Thêm môn học chương trình đào tạo</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Thêm môn học chương trình đào tạo</h2>
+
+    <form (submit)="onSubmit()">
+      
+      <div class="form-group">
+        <label for="curriculum">Chương trình đào tạo</label>
+        <select id="curriculum" [(ngModel)]="curriculumSubject.curriculumId" name="curriculum" [disabled]="hasIdParam" required>
+          <option value="">-- Chọn khoa --</option>
+          <option *ngFor="let f of curriculum" [value]="f.id">{{ f.name }}</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="subject">Môn học</label>
+        <select id="subject" [(ngModel)]="curriculumSubject.subjectId" name="subject" required>
+          <option value="">-- Chọn môn học --</option>
+          <option *ngFor="let f of subject" [value]="f.id" >{{ f.subjectName }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="semester">Kỳ học</label>
+        <input type="number" id="semester" [(ngModel)]="curriculumSubject.semester" name="semester" required>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>

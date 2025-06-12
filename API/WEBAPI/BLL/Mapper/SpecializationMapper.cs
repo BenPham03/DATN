@@ -26,7 +26,8 @@ namespace BLL.Mapper
 				Id = model.Id,
 				Name = model.Name,
 				Description = model.Description,
-				MajorId = model.MajorId
+				MajorId = model.MajorId,
+				Status = model.Status
 			};
 		}
 		public static Specializations ToSpecializationFromDelete(this DeleteSpecializationRequestDto model)
@@ -36,7 +37,8 @@ namespace BLL.Mapper
 				Id = model.Id,
 				Name = model.Name,
 				Description = model.Description,
-				MajorId = model.MajorId
+				MajorId = model.MajorId,
+				Status = model.Status
 			};
 		}
 	}

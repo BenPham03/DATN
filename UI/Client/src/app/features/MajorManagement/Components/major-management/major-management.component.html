@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div style="display: flex;">
-    <app-nav></app-nav>
+    <app-nav [active]="'major'"></app-nav>
 <div style="flex: 1;">
 <div id="container">
   <div class="title-bar">
@@ -14,6 +14,7 @@
       <tr>
         <th>Tên ngành</th>
         <th>Mô tả</th>
+        <th>Mã ngành</th>
         <th>Khoa</th>
         <th>Sửa</th>
         <th>Xóa</th>
@@ -23,6 +24,7 @@
       <tr *ngFor = "let major of majors">
         <td>{{major.name}}</td>
         <td>{{major.description}}</td>
+        <td>{{major.majorCode}}</td>
         <td>{{major.faculty.name}}</td>
         <td style="text-align: center;">
           <app-update-major  [majorM]="major"></app-update-major>

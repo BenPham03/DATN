@@ -7,6 +7,7 @@ import { MajorService } from '../../services/major-service.service';
 import { NavComponent } from '../../../../core/components/nav/nav.component';
 import { UpdateMajorComponent } from "../update-major/update-major.component";
 import { Router } from '@angular/router';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-major-management',
@@ -20,9 +21,13 @@ export class MajorManagementComponent {
     id: "",
     facultyId: "",
     name: "",
+    majorCode : "",
     description: "",
+    status: 0
   }
-
+statusCm: commonDto ={
+    status :[0,1]
+  }
   constructor(private majorService : MajorService,
    private router : Router
   ) {
@@ -30,7 +35,7 @@ export class MajorManagementComponent {
    }
 
   ngOnInit(){
-    this.majorService.getAllMajor().subscribe((data:any) =>{
+    this.majorService.getAllMajor(this.statusCm).subscribe((data:any) =>{
       this.majors = data.items
     });
   }
@@ -40,7 +45,9 @@ export class MajorManagementComponent {
       id: deleteMajor.id,
       facultyId: deleteMajor.facultyId,
       name: deleteMajor.name,
-      description: deleteMajor.description
+      majorCode: deleteMajor.majorCode,
+      description: deleteMajor.description,
+      status: deleteMajor.status
     }
     this.majorService.deleteMajor(this.deleteMajorModel).subscribe((data: any) =>{
       console.log(data)

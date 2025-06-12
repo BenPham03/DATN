@@ -1,0 +1,36 @@
+<div class="container">
+  <form (ngSubmit)="onFormSubmit()" #loginForm="ngForm" class="form-box">
+    <h2>Đăng nhập</h2>
+
+    <!-- Username -->
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="model.UserName"
+      placeholder="Tên đăng nhập"
+      required
+      #username="ngModel"
+      [class.invalid]="username.invalid && username.touched"
+    />
+    <div class="error" *ngIf="username.invalid && username.touched">
+      Tên đăng nhập không được để trống.
+    </div>
+
+    <!-- Password -->
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="model.Password"
+      placeholder="Mật khẩu"
+      required
+      #password="ngModel"
+      [class.invalid]="password.invalid && password.touched"
+    />
+    <div class="error" *ngIf="password.invalid && password.touched">
+      Mật khẩu không được để trống.
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="loginForm.invalid">Đăng nhập</button>
+  </form>
+</div>

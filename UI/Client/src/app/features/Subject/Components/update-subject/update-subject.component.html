@@ -10,37 +10,38 @@
     <form (submit)="onSubmit()">
       <div class="form-group">
         <label for="name">Tên môn học</label>
-        <input type="text" id="name" [(ngModel)]="SubjectM.subjectName" name="name" required>
+        <input type="text" id="name" [(ngModel)]="subject.subjectName" name="name" required>
       </div>
 
       <div class="form-group">
         <label for="subjectCode">Mã môn học</label>
-        <input type="text" id="subjectCode" [(ngModel)]="SubjectM.subjectCode" name="subjectCode" required>
+        <input type="text" id="subjectCode" [(ngModel)]="subject.subjectCode" name="subjectCode" required>
       </div>
 
       <div class="form-group">
         <label for="theoryCredits">Số tín chỉ lý thuyết</label>
-        <input type="number" id="theoryCredits" [(ngModel)]="SubjectM.theoryCredits" name="theoryCredits" required>
+        <input type="number" id="theoryCredits" [(ngModel)]="subject.theoryCredits" name="theoryCredits" required>
       </div>
       
       <div class="form-group">
         <label for="practiceCredits">Số tín chỉ thực hành</label>
-        <input type="number" id="practiceCredits" [(ngModel)]="SubjectM.practiceCredits" name="practiceCredits" required>
+        <input type="number" id="practiceCredits" [(ngModel)]="subject.practiceCredits" name="practiceCredits" required>
       </div>
 
       <div class="form-group">
-        <label for="specialization">Chuyên ngành</label>
-        <select id="specialization" [(ngModel)]="SubjectM.specializationId" name="specialization" required>
-          <option value="">-- Chọn chuyên ngành --</option>
-          <option *ngFor="let s of specializations" [value]="s.id" [(ngModel)] = "SubjectM.specializationId" name = "specializationId">{{ s.name }}</option>
+        <label for="status">Trạng thái</label>
+        <select id="status" [(ngModel)]="subject.status" name="status" required class="form-control">
+          <option value="">-- Trạng thái --</option>
+          <option [value]=status.Active name = "status">Active</option>
+          <option [value]=status.Inactive name = "status">Inactive</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="department">Bộ môn</label>
-        <select id="department" [(ngModel)]="SubjectM.departmentId" name="department" required>
+        <select id="department" [(ngModel)]="subject.departmentId" name="department" required>
           <option value="">-- Chọn bộ môn --</option>
-          <option *ngFor="let d of departments" [value]="d.id" [(ngModel)] = "SubjectM.departmentId" name = "departmentId">{{ d.name }}</option>
+          <option *ngFor="let d of departments" [value]="d.id" name = "departmentId">{{ d.name }}</option>
         </select>
       </div>
 

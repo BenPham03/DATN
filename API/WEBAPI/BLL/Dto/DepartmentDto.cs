@@ -31,6 +31,7 @@ namespace BLL.Dto
 		public string Description { get; set; }
 		[Required(ErrorMessage = "Faculty id cannot null")]
 		public Guid? FacultyId { get; set; }
+		public Status Status { get; set; }
 	}
 	public class DeleteDepartmentRequestDto
 	{
@@ -44,5 +45,6 @@ namespace BLL.Dto
 		public string Description { get; set; }
 		[Required(ErrorMessage = "Faculty id cannot null")]
 		public Guid? FacultyId { get; set; }
+		public Status Status { get; set; }
 	}
 }

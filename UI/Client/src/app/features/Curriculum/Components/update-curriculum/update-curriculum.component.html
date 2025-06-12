@@ -1,0 +1,52 @@
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Sửa chương trinh đào tạo</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2 style="color:black">Sửa chương trinh đào tạo</h2>
+    <form (submit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Tên chương trinh đào tạo</label>
+          <input type="text" id="name" [(ngModel)]="curriculumM.name" name="name" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="academicYear">Năm học</label>
+          <textarea id="academicYear" [(ngModel)]="curriculumM.academicYear" name="description" required></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="status">Trạng thái</label>
+          <select id="status" [(ngModel)]="curriculumM.status" name="status" required class="form-control">
+            <option value="">-- Trạng thái --</option>
+            <option [value]=status.Active [(ngModel)] = "curriculumM.status" name = "status">Active</option>
+            <option [value]=status.Inactive [(ngModel)] = "curriculumM.status" name = "status">Inactive</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="outputStandard">Chuẩn đầu ra</label>
+          <select id="outputStandard" [(ngModel)]="curriculumM.outputStandard" name="outputStandard" required>
+            <option value="">-- Chọn chuẩn đầu ra --</option>
+            <option [value]=selectedStandard.Bachelor [(ngModel)] = "curriculumM.outputStandard" name = "outputStandard">Cử nhân</option>
+            <option [value]=selectedStandard.Master [(ngModel)] = "curriculumM.outputStandard" name = "outputStandard">Thạc sĩ</option>
+            <option [value]=selectedStandard.Doctoral [(ngModel)] = "curriculumM.outputStandard" name = "outputStandard">Tiến sĩ</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="specialization">Chuyên ngành</label>
+          <select id="specialization" [(ngModel)]="curriculumM.specializationId" name="specialization" required>
+            <option value="">-- Chọn chyên ngành --</option>
+            <option *ngFor="let f of specializations" [value]="f.id" [(ngModel)] = "curriculum.specializationId" name = "specializationId">{{ f.name }}</option>
+          </select>
+        </div>
+
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>

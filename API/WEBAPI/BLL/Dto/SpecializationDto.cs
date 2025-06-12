@@ -34,6 +34,7 @@ namespace BLL.Dto
 		public string Description { get; set; }
 		[Required(ErrorMessage = "Specialization MajorId cannot null")]
 		public Guid? MajorId { get; set; }
+		public Status Status { get; set; }
 	}
 	public class DeleteSpecializationRequestDto
 	{
@@ -47,5 +48,6 @@ namespace BLL.Dto
 		public string Description { get; set; }
 		[Required(ErrorMessage = "Specialization MajorId cannot null")]
 		public Guid? MajorId { get; set; }
+		public Status Status { get; set; }
 	}
 }

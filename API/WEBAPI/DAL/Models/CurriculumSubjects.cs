@@ -11,7 +11,6 @@ namespace DAL.Models
 		public Guid? CurriculumId { get; set; }
 		public Guid? SubjectId { get; set; }
 		public int Semester { get; set; }
-		public bool IsMandatory { get; set; }
 		public Curriculum? Curriculum { get; set; }
 		public Subjects? Subject { get; set; }
 	}

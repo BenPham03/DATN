@@ -18,6 +18,7 @@ export class AddMajorComponent {
   major : MajorCreateDto = {
     facultyId: "",
     name: "",
+    majorCode: "",
     description: "",
   }
 
@@ -52,7 +53,8 @@ export class AddMajorComponent {
     this.closeModal();
     
     // Reset form nếu cần
-    this.major = { name: '', description: '', facultyId: '' };
+    
+    this.major = { name: '', description: '', facultyId: '', majorCode: "",};
 
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/majorManagement']);

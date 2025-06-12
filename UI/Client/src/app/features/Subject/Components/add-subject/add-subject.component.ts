@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { SubjectService } from '../../Services/subject.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-add-subject',
@@ -23,12 +24,17 @@ export class AddSubjectComponent {
     subjectCode :"",
     theoryCredits :0,
     practiceCredits :0,
-    specializationId :"",
     departmentId :"",
   }
 
   specializations: SpecializationDto[] = [];
   departments: DepartmentDto[] = [];
+  statusCm: commonDto ={
+      status :[0]
+    }
+    statusCmsp: commonDto ={
+    status :[0]
+  }
 
   constructor(private departmentService : DepartmentService,
     private specializationService : SpecializationService,
@@ -37,10 +43,10 @@ export class AddSubjectComponent {
   ) { }
 
   ngOnInit(){
-    this.departmentService.getAllDepartment().subscribe((data:any) =>{
+    this.departmentService.getAllDepartment(this.statusCm).subscribe((data:any) =>{
       this.departments = data.items 
     });
-    this.specializationService.getAllSpecialization().subscribe((data:any) =>{
+    this.specializationService.getAllSpecialization(this.statusCmsp).subscribe((data:any) =>{
       this.specializations = data.items 
     });
   }
@@ -67,7 +73,6 @@ export class AddSubjectComponent {
       subjectCode :"",
       theoryCredits :0,
       practiceCredits :0,
-      specializationId :"",
       departmentId :"", };
 
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

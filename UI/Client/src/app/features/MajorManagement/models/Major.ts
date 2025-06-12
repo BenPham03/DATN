@@ -4,7 +4,9 @@ export interface MajorDto{
     id : string
     name: string,
     description: string,
+    majorCode: string,
     facultyId : string,
+    status: number,
     faculty: {
         name :string
     }
@@ -23,10 +25,11 @@ export interface GetFacultyResponse{
   totalCount: number,
   items: Faculty[]
   hasPreviousPage: boolean,
-  hasNextPage: boolean
+  hasNextPage: boolean,
 }
 export interface MajorCreateDto{
     name: string,
+    majorCode: string,
     description: string,
     facultyId: string
 }
@@ -34,12 +37,17 @@ export interface MajorCreateDto{
 export interface MajorUpdateDto{
   id: string
   name: string,
-  description: string,
-  facultyId: string
+    majorCode: string,
+    description: string,
+  facultyId: string,
+  status: number,
+
 }
 export interface MajorDeleteDto{
   id: string
   name: string,
-  description: string,
-  facultyId: string
+    majorCode: string,
+    description: string,
+  facultyId: string,
+  status: number,
 }

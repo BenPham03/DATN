@@ -18,7 +18,6 @@ namespace BLL.Mapper
 				SubjectCode = dto.SubjectCode,
 				TheoryCredits = dto.TheoryCredits,
 				PracticeCredits = dto.PracticeCredits,
-				SpecializationId = dto.SpecializationId,
 				DepartmentId = dto.DepartmentId
 			};
 		}
@@ -31,8 +30,8 @@ namespace BLL.Mapper
 				SubjectCode = dto.SubjectCode,
 				TheoryCredits = dto.TheoryCredits,
 				PracticeCredits = dto.PracticeCredits,
-				SpecializationId = dto.SpecializationId,
-				DepartmentId = dto.DepartmentId
+				DepartmentId = dto.DepartmentId,
+				Status = dto.Status
 			};
 		}
 		public static Subjects ToSubjectFromDeleteDto(this DeleteSubjectDto dto)
@@ -44,8 +43,8 @@ namespace BLL.Mapper
 				SubjectCode = dto.SubjectCode,
 				TheoryCredits = dto.TheoryCredits,
 				PracticeCredits = dto.PracticeCredits,
-				SpecializationId = dto.SpecializationId,
-				DepartmentId = dto.DepartmentId
+				DepartmentId = dto.DepartmentId,
+				Status = dto.Status
 			};
 		}
 	}

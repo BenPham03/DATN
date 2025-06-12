@@ -133,16 +133,30 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("MajorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OutputStandard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("SpecializationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateAt")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("MajorId");
+                    b.HasIndex("SpecializationId");
 
                     b.ToTable("Curriculum");
                 });
@@ -154,9 +168,6 @@ namespace DAL.Migrations
 
                     b.Property<Guid?>("CurriculumId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsMandatory")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Semester")
                         .HasColumnType("int");
@@ -174,6 +185,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -183,6 +197,13 @@ namespace DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -198,12 +219,22 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -249,6 +280,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -256,8 +290,19 @@ namespace DAL.Migrations
                     b.Property<Guid?>("FacultyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("MajorCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -288,6 +333,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -297,6 +345,13 @@ namespace DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -312,14 +367,18 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid?>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("PracticeCredits")
-                        .HasColumnType("int");
+                    b.Property<decimal>("PracticeCredits")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("SpecializationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubjectCode")
                         .IsRequired()
@@ -329,14 +388,15 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TheoryCredits")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TheoryCredits")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UpdateAt")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
-
-                    b.HasIndex("SpecializationId");
 
                     b.ToTable("Subjects");
                 });
@@ -501,11 +561,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Curriculum", b =>
                 {
-                    b.HasOne("DAL.Models.Majors", "Major")
-                        .WithMany()
-                        .HasForeignKey("MajorId");
+                    b.HasOne("DAL.Models.Specializations", "Specialization")
+                        .WithMany("Curriculums")
+                        .HasForeignKey("SpecializationId");
 
-                    b.Navigation("Major");
+                    b.Navigation("Specialization");
                 });
 
             modelBuilder.Entity("DAL.Models.CurriculumSubjects", b =>
@@ -593,14 +653,7 @@ namespace DAL.Migrations
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("DAL.Models.Specializations", "Specialization")
-                        .WithMany("Subjects")
-                        .HasForeignKey("SpecializationId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
                     b.Navigation("Department");
-
-                    b.Navigation("Specialization");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -687,7 +740,7 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Specializations", b =>
                 {
-                    b.Navigation("Subjects");
+                    b.Navigation("Curriculums");
                 });
 
             modelBuilder.Entity("DAL.Models.Subjects", b =>

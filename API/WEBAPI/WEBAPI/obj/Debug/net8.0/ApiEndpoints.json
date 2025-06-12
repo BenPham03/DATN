@@ -1,8 +1,50 @@
 [
   {
     "ContainingType": "WEBAPI.Controllers.AuthenticateController",
+    "Method": "GetAllUsers",
+    "RelativePath": "authenticate/all-users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.AuthenticateController",
+    "Method": "AssignRole",
+    "RelativePath": "authenticate/assign-role",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.AssignRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.AuthenticateController",
+    "Method": "ChangePassword",
+    "RelativePath": "authenticate/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.AuthenticateController",
     "Method": "Login",
-    "RelativePath": "api/authenticate/login",
+    "RelativePath": "authenticate/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -17,8 +59,24 @@
   },
   {
     "ContainingType": "WEBAPI.Controllers.AuthenticateController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "authenticate/register-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.AuthenticateController",
     "Method": "RegisterDean",
-    "RelativePath": "api/authenticate/register-dean",
+    "RelativePath": "authenticate/register-dean",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -34,7 +92,7 @@
   {
     "ContainingType": "WEBAPI.Controllers.AuthenticateController",
     "Method": "RegisterLecture",
-    "RelativePath": "api/authenticate/register-Lecture",
+    "RelativePath": "authenticate/register-Lecture",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -42,6 +100,224 @@
       {
         "Name": "model",
         "Type": "BLL.Dto.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.AuthenticateController",
+    "Method": "ResetPassword",
+    "RelativePath": "authenticate/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumController",
+    "Method": "Create",
+    "RelativePath": "curriculum/add-curriculum",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumController",
+    "Method": "Delete",
+    "RelativePath": "curriculum/delete-curriculum",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumDeleteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumController",
+    "Method": "GetAll",
+    "RelativePath": "curriculum/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumController",
+    "Method": "GetDetail",
+    "RelativePath": "curriculum/get-detail/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumController",
+    "Method": "Update",
+    "RelativePath": "curriculum/update-curriculum",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumSubjectController",
+    "Method": "Create",
+    "RelativePath": "curriculumsubject/add-curriculum-subject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumSubjectCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumSubjectController",
+    "Method": "Delete",
+    "RelativePath": "curriculumsubject/delete-curriculum-subject",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumSubjectDeleteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumSubjectController",
+    "Method": "GetAll",
+    "RelativePath": "curriculumsubject/get-all/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.CurriculumSubjectController",
+    "Method": "Update",
+    "RelativePath": "curriculumsubject/update-curriculum-subject",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CurriculumSubjectUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.DepartmentController",
+    "Method": "Create",
+    "RelativePath": "department/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.CreateDepartmentRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.DepartmentController",
+    "Method": "Delete",
+    "RelativePath": "department/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.DeleteDepartmentRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.DepartmentController",
+    "Method": "GetAll",
+    "RelativePath": "department/get-all",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "BLL.Dto.CommonDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.DepartmentController",
+    "Method": "Update",
+    "RelativePath": "department/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BLL.Dto.UpdateDepartmentRequestDto",
         "IsRequired": true
       }
     ],
@@ -93,7 +369,7 @@
     "ContainingType": "WEBAPI.Controllers.MajorController",
     "Method": "Delete",
     "RelativePath": "major/delete-major",
-    "HttpMethod": "PUT",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -109,10 +385,16 @@
     "ContainingType": "WEBAPI.Controllers.MajorController",
     "Method": "GetAll",
     "RelativePath": "major/get-all-major",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "BLL.Dto.CommonDto",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -126,6 +408,134 @@
       {
         "Name": "model",
         "Type": "BLL.Dto.RequestMajorUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SpecializationController",
+    "Method": "Create",
+    "RelativePath": "specialization/add-specialization",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CreateSpecializationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SpecializationController",
+    "Method": "Delete",
+    "RelativePath": "specialization/delete-specialization",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.DeleteSpecializationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SpecializationController",
+    "Method": "GetAll",
+    "RelativePath": "specialization/getallspecialization",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "BLL.Dto.CommonDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SpecializationController",
+    "Method": "Update",
+    "RelativePath": "specialization/update-specialization",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.UpdateSpecializationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SubjectController",
+    "Method": "Create",
+    "RelativePath": "subject/add-subject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.CreateSubjectDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SubjectController",
+    "Method": "Delete",
+    "RelativePath": "subject/delete-subject",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.DeleteSubjectDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SubjectController",
+    "Method": "GetAll",
+    "RelativePath": "subject/get-all",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "BLL.Dto.CommonDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.SubjectController",
+    "Method": "Update",
+    "RelativePath": "subject/update-subject",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.UpdateSubjectDto",
         "IsRequired": true
       }
     ],

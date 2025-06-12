@@ -13,6 +13,9 @@ namespace DAL.Models
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public Guid? FacultyId { get; set; }
+		public DateTime CreateAt { get; set; } = DateTime.Now;
+		public string? UpdateAt { get; set; }
+		public Status Status { get; set; }
 		public Faculties? Faculty { get; set; }
 		public ICollection<Lectures> Lectures { get; set; } = new List<Lectures>();
 		public ICollection<Subjects> Subjects { get; set; } = new List<Subjects>();

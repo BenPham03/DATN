@@ -68,7 +68,6 @@ D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Memory.Data.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
@@ -147,12 +146,6 @@ D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\scopedcss\bundle\WEBAPI.styles.c
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.build.json
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.development.json
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets\msbuild.WEBAPI.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets\msbuild.WEBAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WEBAPI.props
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WEBAPI.props
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WEBAPI.props
-D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.csproj.Up2Date
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.dll
@@ -161,3 +154,4 @@ D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.pdb
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.genruntimeconfig.cache
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\ref\WEBAPI.dll
 D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\WEBAPI.sourcelink.json
+D:\Code\DATN\API\WEBAPI\WEBAPI\obj\Debug\net8.0\staticwebassets.build.json.cache

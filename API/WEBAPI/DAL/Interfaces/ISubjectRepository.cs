@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.Common;
+using DAL.Models;
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,6 @@ namespace DAL.Interfaces
 {
 	public interface ISubjectRepository : IGenericRepository<Subjects>
 	{
+		public void UpdateStatus(CommonEntity entity);
 	}
 }

@@ -3,6 +3,7 @@ export interface DepartmentDto{
     name: string
     description: string
     facultyId: string
+    status : number
     faculty: {
         name: string
     }
@@ -17,10 +18,12 @@ export interface DeleteDepartmentDto{
     name: string
     description: string
     facultyId: string
+    status: number
 }
 export interface UpdateDepartmentDto{
     id: string
     name: string
     description: string
     facultyId: string
+    status: number
 }

@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav [active]="'curriculum'"></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Chương trình đào tạo</h1>
+    <app-add-curriculum></app-add-curriculum>
+    
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên chương trình đào tạo</th>
+        <th>Năm học</th>
+        <th>Chuyên ngành</th>
+        <th>Chuẩn đầu ra</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let curriculum of curriculums">
+        <td (click)="goToDetail(curriculum.id)">{{curriculum.name}}</td>
+        <td>{{curriculum.academicYear}}</td>
+        <td>{{curriculum.specialization.name}}</td>
+        <td>{{outputStandard[curriculum.outputStandard]}}</td>
+        <td style="text-align: center;">
+          <app-update-curriculum  [curriculumM]="curriculum"></app-update-curriculum>
+        </td>
+        <td style="text-align: center;" (click)="deleteMajor(curriculum)"><button class="deleteButton">Xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

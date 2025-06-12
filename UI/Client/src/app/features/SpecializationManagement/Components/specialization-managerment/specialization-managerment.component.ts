@@ -8,6 +8,7 @@ import { SpecializationService } from '../../services/specialization.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-specialization-managerment',
@@ -22,7 +23,11 @@ export class SpecializationManagermentComponent {
     majorId: "",
     name: "",
     description: "",
+    status:0
   }
+  statusCm: commonDto ={
+      status :[0,1]
+    }
 
   constructor(private specializationService : SpecializationService,
    private router : Router
@@ -31,7 +36,7 @@ export class SpecializationManagermentComponent {
    }
 
   ngOnInit(){
-    this.specializationService.getAllSpecialization().subscribe((data:any) =>{
+    this.specializationService.getAllSpecialization(this.statusCm).subscribe((data:any) =>{
       this.specializations = data.items
       console.log(data.items);
     });
@@ -42,7 +47,8 @@ export class SpecializationManagermentComponent {
       id: deleteSpecialization.id,
       majorId: deleteSpecialization.majorId,
       name: deleteSpecialization.name,
-      description: deleteSpecialization.description
+      description: deleteSpecialization.description,
+      status: deleteSpecialization.status
     }
     console.log(this.deleteSpecializationModel)
     this.specializationService.deleteSpecialization(this.deleteSpecializationModel).subscribe((data: any) =>{

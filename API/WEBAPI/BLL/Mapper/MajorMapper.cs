@@ -16,6 +16,7 @@ namespace BLL.Mapper
 			{
 				Name = model.Name,
 				Description = model.Description,
+				MajorCode = model.MajorCode,
 				FacultyId = model.FacultyId,
 			};
 		}
@@ -26,7 +27,9 @@ namespace BLL.Mapper
 				Id = model.Id,
 				Name = model.Name,
 				Description = model.Description,
+				MajorCode = model.MajorCode,
 				FacultyId = model.FacultyId,
+				Status = model.Status
 			};
 		}
 		public static Majors ToMajorFromDelete(this RequestMajorDeleteDto model)
@@ -36,7 +39,9 @@ namespace BLL.Mapper
 				Id = model.Id,
 				Name = model.Name,
 				Description = model.Description,
+				MajorCode = model.MajorCode,
 				FacultyId = model.FacultyId,
+				Status = model.Status
 			};
 		}
 	}

@@ -17,10 +17,15 @@ namespace WEBAPI.Controllers
 			_majorService = majorService;
 		}
 
-		[HttpGet("get-all-major")]
-		public async Task<IActionResult> GetAll()
+		[HttpPost("get-all-major")]
+		public async Task<IActionResult> GetAll([FromBody] CommonDto? status)
 		{
-			return Ok(await _majorService.GetAsync(includeProperties : "Faculty"));
+			if(status.Status.Count == 0)
+			{
+				return Ok(await _majorService.GetAsync(includeProperties: "Faculty", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name)));
+			}
+			return Ok(await _majorService.GetAsync(includeProperties: "Faculty", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name), filter: (e => status.Status.Contains(e.Status))));
+
 		}
 		[HttpPost("add-major")]
 		public async Task<IActionResult> Create([FromBody] RequestMajorCreateDto model)

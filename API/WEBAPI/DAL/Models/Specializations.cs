@@ -12,8 +12,11 @@ namespace DAL.Models
 		public Guid Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
+		public DateTime CreateAt { get; set; } = DateTime.Now;
+		public string? UpdateAt { get; set; }
+		public Status Status { get; set; }
 		public Guid? MajorId { get; set; }
 		public Majors? Major { get; set; }
-		public ICollection<Subjects> Subjects { get; set; } = new List<Subjects>();
+		public ICollection<Curriculum> Curriculums { get; set; } = new List<Curriculum>();
 	}
 }

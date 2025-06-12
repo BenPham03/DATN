@@ -20,10 +20,16 @@ export class UpdateMajorComponent {
     facultyId: "",
     name: "",
     description: "",
+    majorCode: "",
+    status: 0
   }
 
   @Input() majorM!: MajorDto;
 
+  status = {
+    Active: 0,
+    Inactive: 1
+  }
   faculties: Faculty[] = [];
 
   constructor(private majorService : MajorService,
@@ -51,7 +57,9 @@ export class UpdateMajorComponent {
       id: this.majorM.id,
       facultyId: this.majorM.facultyId,
       name: this.majorM.name,
-      description: this.majorM.description
+      majorCode: this.majorM.majorCode,
+      description: this.majorM.description,
+      status: this.majorM.status
     }
     this.majorService.updateMajor(this.major).subscribe((data: any) =>{
       console.log(data)

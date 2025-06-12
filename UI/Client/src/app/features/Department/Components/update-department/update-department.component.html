@@ -1,20 +1,29 @@
 <!-- Nút mở modal -->
-<button (click)="openModal()" class="open-btn">Sửa ngành</button>
+<button (click)="openModal()" class="open-btn">Sửa bộ môn</button>
 
 <!-- Modal -->
 <div class="modal" [class.show]="isModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <h2 style="color:black">Sửa ngành</h2>
+    <h2 style="color:black">Sửa bộ môn</h2>
     <form (submit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Tên ngành</label>
+        <label for="name">Tên bộ môn</label>
         <input type="text" id="name" [(ngModel)]="DepartmentM.name" name="name" required>
       </div>
 
       <div class="form-group">
         <label for="description">Mô tả</label>
         <textarea id="description" [(ngModel)]="DepartmentM.description" name="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Trạng thái</label>
+        <select id="status" [(ngModel)]="DepartmentM.status" name="status" required class="form-control">
+          <option value="">-- Trạng thái --</option>
+          <option [value]=status.Active [(ngModel)] = "DepartmentM.status" name = "status">Active</option>
+          <option [value]=status.Inactive [(ngModel)] = "DepartmentM.status" name = "status">Inactive</option>
+        </select>
       </div>
 
       <div class="form-group">

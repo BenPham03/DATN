@@ -9,6 +9,7 @@ import { SubjectService } from '../../Services/subject.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-subject-management',
@@ -24,10 +25,12 @@ export class SubjectManagementComponent {
     subjectCode :"",
     theoryCredits :0,
     practiceCredits :0,
-    specializationId :"",
     departmentId :"",
+    status:0
   }
-
+  statusCm: commonDto ={
+      status :[0,1]
+    }
   constructor(private subjectService : SubjectService,
    private router : Router
   ) {
@@ -35,7 +38,7 @@ export class SubjectManagementComponent {
    }
 
   ngOnInit(){
-    this.subjectService.getAllSubject().subscribe((data:any) =>{
+    this.subjectService.getAllSubject(this.statusCm).subscribe((data:any) =>{
       this.subjects = data.items
     });
   }
@@ -47,8 +50,8 @@ export class SubjectManagementComponent {
       subjectCode :deleteSubject.subjectCode,
       theoryCredits :deleteSubject.theoryCredits,
       practiceCredits :deleteSubject.practiceCredits,
-      specializationId :deleteSubject.specializationId,
       departmentId :deleteSubject.departmentId,
+      status: deleteSubject.status
     }
     this.subjectService.deleteSubject(this.deleteSubjectModel).subscribe((data: any) =>{
       console.log(data)

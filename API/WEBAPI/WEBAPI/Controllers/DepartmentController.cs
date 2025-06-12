@@ -15,10 +15,14 @@ namespace WEBAPI.Controllers
 		{
 			_departmentService = departmentService;
 		}
-		[HttpGet("get-all")]
-		public async Task<IActionResult> GetAll()
+		[HttpPost("get-all")]
+		public async Task<IActionResult> GetAll([FromBody] CommonDto status)
 		{
-			return Ok(await _departmentService.GetAsync(includeProperties: "Faculty"));
+			if(status.Status.Count == 0)
+			{
+				return Ok(await _departmentService.GetAsync(includeProperties: "Faculty", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name)));
+			}
+			return Ok(await _departmentService.GetAsync(includeProperties: "Faculty", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name), filter: (e => status.Status.Contains(e.Status))));
 		}
 		[HttpPost("create")]
 		public async Task<IActionResult> Create([FromBody] CreateDepartmentRequestDto model)

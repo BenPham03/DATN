@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { DeleteDepartmentDto, DepartmentDto } from '../../Models/DepartmentDto';
 import { DepartmentService } from '../../service/department.service';
 import { Router } from '@angular/router';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-department-management',
@@ -22,7 +23,11 @@ export class DepartmentManagementComponent {
     facultyId: "",
     name: "",
     description: "",
+    status: 0
   }
+  statusCm: commonDto ={
+      status :[0,1]
+    }
 
   constructor(private departmentService : DepartmentService,
    private router : Router
@@ -31,7 +36,7 @@ export class DepartmentManagementComponent {
    }
 
   ngOnInit(){
-    this.departmentService.getAllDepartment().subscribe((data:any) =>{
+    this.departmentService.getAllDepartment(this.statusCm).subscribe((data:any) =>{
       this.departments = data.items
     });
   }
@@ -41,7 +46,8 @@ export class DepartmentManagementComponent {
       id: deleteDepartment.id,
       facultyId: deleteDepartment.facultyId,
       name: deleteDepartment.name,
-      description: deleteDepartment.description
+      description: deleteDepartment.description,
+      status: deleteDepartment.status
     }
     this.departmentService.deleteDepartment(this.deleteDepartmentModel).subscribe((data: any) =>{
       console.log(data)

@@ -6,6 +6,7 @@ import { SpecializationDto, SpecializationUpdateDto } from '../../models/Special
 import { MajorService } from '../../../MajorManagement/services/major-service.service';
 import { SpecializationService } from '../../services/specialization.service';
 import { Router } from '@angular/router';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-update-specialization',
@@ -21,11 +22,19 @@ export class UpdateSpecializationComponent {
     majorId: "",
     name: "",
     description: "",
+    status: 0
   }
 
   @Input() specializationI!: SpecializationUpdateDto;
 
+  status = {
+    Active: 0,
+    Inactive: 1
+  }
   majors: MajorDto[] = [];
+  statusCm: commonDto ={
+    status :[0]
+  }
 
   constructor(private majorService : MajorService,
     private specializationService : SpecializationService,
@@ -33,7 +42,7 @@ export class UpdateSpecializationComponent {
   ) { }
 
   ngOnInit(){
-    this.majorService.getAllMajor().subscribe((data:any) =>{
+    this.majorService.getAllMajor(this.statusCm).subscribe((data:any) =>{
       this.majors = data.items 
       console.log(this.majorService)
 
@@ -51,9 +60,10 @@ export class UpdateSpecializationComponent {
   onSubmit() {
     this.specialization = {
       id: this.specializationI.id,
-      majorId: this.specializationI.id,
+      majorId: this.specializationI.majorId,
       name: this.specializationI.name,
-      description: this.specializationI.description
+      description: this.specializationI.description,
+      status: this.specializationI.status
     }
     this.specializationService.updateSpecialization(this.specialization).subscribe((data: any) =>{
       console.log(data)

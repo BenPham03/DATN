@@ -18,6 +18,20 @@
       </div>
 
       <div class="form-group">
+        <label for="majorCode">Mã ngành</label>
+        <textarea id="majorCode" [(ngModel)]="majorM.majorCode" name="majorCode" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Trạng thái</label>
+        <select id="status" [(ngModel)]="majorM.status" name="status" required class="form-control">
+          <option value="">-- Trạng thái --</option>
+          <option [value]=status.Active [(ngModel)] = "majorM.status" name = "status">Active</option>
+          <option [value]=status.Inactive [(ngModel)] = "majorM.status" name = "status">Inactive</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="faculty">Khoa</label>
         <select id="faculty" [(ngModel)]="majorM.facultyId" name="faculty" required>
           <option value="">-- Chọn khoa --</option>

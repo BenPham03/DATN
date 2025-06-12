@@ -5,7 +5,7 @@
 <div class="modal" [class.show]="isModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <h2>Thêm bộ môn mới</h2>
+    <h2>Thêm môn học mới</h2>
 
     <form (submit)="onSubmit()">
       <div class="form-group">
@@ -29,18 +29,10 @@
       </div>
 
       <div class="form-group">
-        <label for="specialization">Chuyên ngành</label>
-        <select id="specialization" [(ngModel)]="subject.specializationId" name="specialization" required>
-          <option value="">-- Chọn chuyên ngành --</option>
-          <option *ngFor="let s of specializations" [value]="s.id" [(ngModel)] = "subject.specializationId" name = "specializationId">{{ s.name }}</option>
-        </select>
-      </div>
-
-      <div class="form-group">
         <label for="department">Bộ môn</label>
         <select id="department" [(ngModel)]="subject.departmentId" name="department" required>
           <option value="">-- Chọn bộ môn --</option>
-          <option *ngFor="let d of departments" [value]="d.id" [(ngModel)] = "subject.departmentId" name = "departmentId">{{ d.name }}</option>
+          <option *ngFor="let d of departments" [value]="d.id" name = "departmentId">{{ d.name }}</option>
         </select>
       </div>
 

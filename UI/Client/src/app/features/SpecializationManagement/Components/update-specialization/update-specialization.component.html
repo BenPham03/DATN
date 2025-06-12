@@ -18,6 +18,15 @@
       </div>
 
       <div class="form-group">
+        <label for="status">Trạng thái</label>
+        <select id="status" [(ngModel)]="specializationI.status" name="status" required class="form-control">
+          <option value="">-- Trạng thái --</option>
+          <option [value]=status.Active [(ngModel)] = "specializationI.status" name = "status">Active</option>
+          <option [value]=status.Inactive [(ngModel)] = "specializationI.status" name = "status">Inactive</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label style="text-align: left;" for="faculty">Ngành</label>
         <select id="faculty" [(ngModel)]="specializationI.majorId" name="faculty" required>
           <option value="">-- Chọn khoa --</option>

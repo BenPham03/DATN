@@ -15,10 +15,14 @@ namespace WEBAPI.Controllers
 		{
 			_specializationService = specializationService;
 		}
-		[HttpGet("getallspecialization")]
-		public async Task<IActionResult> GetAll()
+		[HttpPost("getallspecialization")]
+		public async Task<IActionResult> GetAll([FromBody] CommonDto status)
 		{
-			return Ok(await _specializationService.GetAsync(includeProperties:"Major"));
+			if (status.Status.Count == 0)
+			{
+				return Ok(await _specializationService.GetAsync(includeProperties: "Major", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name)));
+			}
+			return Ok(await _specializationService.GetAsync(includeProperties: "Major", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.Name), filter: e => status.Status.Contains(e.Status)));
 		}
 		[HttpPost("add-specialization")]
 		public async Task<IActionResult> Create([FromBody] CreateSpecializationRequestDto dto)
@@ -28,18 +32,18 @@ namespace WEBAPI.Controllers
 				return BadRequest(ModelState);
 			}
 			var entity = dto.ToSpecializationFromCreate();
-			var result = _specializationService.AddAsync(entity);
+			var result = await _specializationService.AddAsync(entity);
 			return Created();
 		}
 		[HttpPut("update-specialization")]
 		public async Task<IActionResult> Update([FromBody] UpdateSpecializationRequestDto dto)
 		{
-			if(!ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 			var entity = dto.ToSpecializationFromUpdate();
-			var result = _specializationService.UpdateAsync(entity);
+			var result = await _specializationService.UpdateAsync(entity);
 			return NoContent();
 		}
 		[HttpDelete("delete-specialization")]

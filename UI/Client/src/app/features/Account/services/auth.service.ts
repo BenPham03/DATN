@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { LoginResponse } from '../models/LoginResponse';
 import { HttpClient } from '@angular/common/http';
 import { Base_Url } from '../../../app.config';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,28 @@ export class AuthService {
       requestLogin
     )
   }
+  getToken(): string | null {
+    return this.cookieService.get('token') || null;
+  }
+
+  getRoleFromToken(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.role || null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  isAdmin(): boolean {
+  return this.getRoleFromToken()?.toLowerCase().includes('admin') ?? false;
+}
+
+isDean(): boolean {
+  return this.getRoleFromToken()?.toLowerCase().includes('dean') ?? false;
+}
+
 }

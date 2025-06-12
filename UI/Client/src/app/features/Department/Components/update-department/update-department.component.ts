@@ -20,10 +20,15 @@ export class UpdateDepartmentComponent {
     facultyId: "",
     name: "",
     description: "",
+    status: 0
   }
 
   @Input() DepartmentM!: DepartmentDto;
 
+  status = {
+    Active: 0,
+    Inactive: 1
+  }
   faculties: Faculty[] = [];
 
   constructor(private departmentService : DepartmentService,
@@ -51,7 +56,8 @@ export class UpdateDepartmentComponent {
       id: this.DepartmentM.id,
       facultyId: this.DepartmentM.facultyId,
       name: this.DepartmentM.name,
-      description: this.DepartmentM.description
+      description: this.DepartmentM.description,
+      status: Number(this.DepartmentM.status)
     }
     this.departmentService.updateDepartment(this.department).subscribe((data: any) =>{
       console.log(data)

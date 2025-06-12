@@ -19,4 +19,20 @@ namespace BLL.Dto
 		[Required(ErrorMessage = "Password is required")]
 		public string? Password { get; set; }
 	}
+	public class ChangePasswordDto
+	{
+		public string Username { get; set; } = string.Empty;
+		public string CurrentPassword { get; set; } = string.Empty;
+		public string NewPassword { get; set; } = string.Empty;
+	}
+	public class AssignRoleDto
+	{
+		public string Username { get; set; } = string.Empty;
+		public string Role { get; set; } = string.Empty;
+	}
+	public class ResetPasswordDto
+	{
+		public string UserName { get; set; } = string.Empty;
+		public string NewPassword { get; set; } = string.Empty;
+	}
 }

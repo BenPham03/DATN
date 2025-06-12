@@ -15,10 +15,14 @@ namespace WEBAPI.Controllers
 		{
 			_subjectService = subjectService;
 		}
-		[HttpGet("get-all")]
-		public async Task<IActionResult> GetAll()
+		[HttpPost("get-all")]
+		public async Task<IActionResult> GetAll([FromBody] CommonDto common)
 		{
-			return Ok(await _subjectService.GetAsync(includeProperties : "Specialization,Department"));
+			if (common.Status.Count == 0)
+			{
+				return Ok(await _subjectService.GetAsync(includeProperties: "Department", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.SubjectName), filter: e => common.Status.Contains(e.Status)));
+			}
+			return Ok(await _subjectService.GetAsync(includeProperties : "Department", pageSize: int.MaxValue, orderBy: c => c.OrderBy(s => s.SubjectName), filter: e => common.Status.Contains(e.Status)));
 		}
 		[HttpPost("add-subject")]
 		public async Task<IActionResult> Create(CreateSubjectDto dto)
@@ -28,7 +32,7 @@ namespace WEBAPI.Controllers
 				return BadRequest(ModelState);
 			}
 			var model = dto.ToSubjectFromCreateDto();
-			var result = _subjectService.AddAsync(model);
+			var result = await _subjectService.AddAsync(model);
 			return Created();
 		}
 		[HttpPut("update-subject")]

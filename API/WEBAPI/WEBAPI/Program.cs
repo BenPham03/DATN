@@ -28,6 +28,7 @@ builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
 builder.Services.AddScoped<ISpecializationRepository, SpecializationRepository>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<ICurriculumRepository, CurriculumRepository>();
+builder.Services.AddScoped<ICurriculumSubjectRepository, CurriculumSubjectRepository>();
 
 
 builder.Services.AddScoped<FacultyService>();
@@ -36,6 +37,7 @@ builder.Services.AddScoped<SubjectService>();
 builder.Services.AddScoped<SpecializationService>();
 builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<CurriculumService>();
+builder.Services.AddScoped<CurriculumSubjectService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {

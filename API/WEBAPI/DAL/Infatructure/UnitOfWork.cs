@@ -28,6 +28,8 @@ namespace DAL.Infatructure
 		public IDepartmentRepository Department { get; private set; }
 		public ICurriculumRepository Curriculum { get; private set; }
 
+		public ICurriculumSubjectRepository CurriculumSubject { get; private set; }
+
 		public async Task BeginTransactionAsync()
 		{
 			await _context.Database.BeginTransactionAsync();

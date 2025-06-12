@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DepartmentDto } from '../../../Department/Models/DepartmentDto';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-update-subject',
@@ -24,14 +25,23 @@ export class UpdateSubjectComponent {
     subjectCode :"",
     theoryCredits :0,
     practiceCredits :0,
-    specializationId :"",
     departmentId :"",
+    status:0
   }
 
   @Input() SubjectM!: SubjectDto;
-
+  status = {
+    Active: 0,
+    Inactive: 1
+  }
   specializations: SpecializationDto[] = [];
   departments: DepartmentDto[] = [];
+  statusCm: commonDto ={
+      status :[0]
+    }
+    statusCmsp: commonDto ={
+    status :[0]
+  }
 
   constructor(private specializationService : SpecializationService,
     private departmentService : DepartmentService,
@@ -40,12 +50,21 @@ export class UpdateSubjectComponent {
   ) { }
 
   ngOnInit(){
-    this.departmentService.getAllDepartment().subscribe((data:any) =>{
+    this.departmentService.getAllDepartment(this.statusCm).subscribe((data:any) =>{
       this.departments = data.items 
     });
-    this.specializationService.getAllSpecialization().subscribe((data:any) =>{
+    this.specializationService.getAllSpecialization(this.statusCmsp).subscribe((data:any) =>{
       this.specializations = data.items 
     });
+    this.subject = {
+    id :this.SubjectM.id,
+    subjectName :this.SubjectM.subjectName,
+    subjectCode :this.SubjectM.subjectCode,
+    theoryCredits :this.SubjectM.theoryCredits,
+    practiceCredits :this.SubjectM.practiceCredits,
+    departmentId :this.SubjectM.departmentId,
+    status:this.SubjectM.status
+  }
   }
 
   openModal() {
@@ -57,15 +76,6 @@ export class UpdateSubjectComponent {
   }
   
   onSubmit() {
-    this.subject = {
-      id: this.SubjectM.id,
-      subjectName :this.SubjectM.subjectName,
-      subjectCode :this.SubjectM.subjectCode,
-      theoryCredits :this.SubjectM.theoryCredits,
-      practiceCredits :this.SubjectM.practiceCredits,
-      specializationId :this.SubjectM.specializationId,
-      departmentId :this.SubjectM.departmentId,
-  }
     this.subjectService.updateSubject(this.subject).subscribe((data: any) =>{
       console.log(data)
     });

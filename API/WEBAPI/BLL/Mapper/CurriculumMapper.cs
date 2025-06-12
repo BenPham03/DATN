@@ -16,7 +16,8 @@ namespace BLL.Mapper
 			{
 				Name = dto.Name,
 				AcademicYear = dto.AcademicYear,
-				MajorId = dto.MajorId,
+				SpecializationId = dto.SpecializationId,
+				OutputStandard = dto.OutputStandard
 			};
 		}
 		public static Curriculum ToCurriculumFromUpdate(this CurriculumUpdateDto dto)
@@ -26,7 +27,9 @@ namespace BLL.Mapper
 				Id = dto.Id,
 				Name = dto.Name,
 				AcademicYear = dto.AcademicYear,
-				MajorId = dto.MajorId,
+				SpecializationId = dto.SpecializationId,
+				Status = dto.Status,
+				OutputStandard = dto.OutputStandard
 			};
 		}
 		public static Curriculum ToCurriculumFromDelete(this CurriculumDeleteDto dto)
@@ -36,7 +39,9 @@ namespace BLL.Mapper
 				Id = dto.Id,
 				Name = dto.Name,
 				AcademicYear = dto.AcademicYear,
-				MajorId = dto.MajorId,
+				SpecializationId = dto.SpecializationId,
+				Status = dto.Status,
+				OutputStandard = dto.OutputStandard
 			};
 		}
 	}

@@ -19,6 +19,11 @@
       </div>
 
       <div class="form-group">
+        <label for="majorCode">Mã ngành</label>
+        <textarea id="majorCode" [(ngModel)]="major.majorCode" name="majorCode" required></textarea>
+      </div>
+
+      <div class="form-group">
         <label for="faculty">Khoa</label>
         <select id="faculty" [(ngModel)]="major.facultyId" name="faculty" required>
           <option value="">-- Chọn khoa --</option>

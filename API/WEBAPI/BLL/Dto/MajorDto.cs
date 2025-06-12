@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace BLL.Dto
 		public string Name { get; set; }
 		[Required(ErrorMessage = "Major description cannot null")]
 		public string Description { get; set; }
+		[Required(ErrorMessage = "Major Code cannot null")]
+		public string MajorCode { get; set; }
 		[Required(ErrorMessage = "Major faculty cannot null")]
 		public Guid? FacultyId { get; set; }
 	}
@@ -27,8 +30,11 @@ namespace BLL.Dto
 		public string Name { get; set; }
 		[Required(ErrorMessage = "Major description cannot null")]
 		public string Description { get; set; }
+		[Required(ErrorMessage = "Major Code cannot null")]
+		public string MajorCode { get; set; }
 		[Required(ErrorMessage = "Major faculty cannot null")]
 		public Guid? FacultyId { get; set; }
+		public Status Status { get; set; }
 	}
 	public class RequestMajorDeleteDto
 	{
@@ -38,7 +44,10 @@ namespace BLL.Dto
 		public string Name { get; set; }
 		[Required(ErrorMessage = "Major description cannot null")]
 		public string Description { get; set; }
+		[Required(ErrorMessage = "Major Code cannot null")]
+		public string MajorCode { get; set; }
 		[Required(ErrorMessage = "Major faculty cannot null")]
 		public Guid? FacultyId { get; set; }
+		public Status Status { get; set; }
 	}
 }

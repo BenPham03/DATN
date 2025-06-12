@@ -6,7 +6,8 @@ export interface  SpecializationDto{
     name : String,
     description : string,
     majorId: string,
-    major : MajorDto | null
+    major : MajorDto | null,
+    status: number
 }
 export interface  SpecializationCreateDto{
     name : String,
@@ -19,12 +20,14 @@ export interface  SpecializationUpdateDto{
     name : String,
     description : string,
     majorId : string
+    status: number
 }
 export interface  SpecializationDeleteDto{
     id: string,
     name : String,
     description : string,
     majorId : string
+    status: number
 }
 
 export interface GetSepecializationResponse{

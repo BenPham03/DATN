@@ -12,12 +12,13 @@ namespace DAL.Models
 		public Guid Id { get; set; }
 		public string SubjectName { get; set; }
 		public string SubjectCode { get; set; }
-		public int TheoryCredits { get; set; }
-		public int PracticeCredits { get; set; }
-		public Guid? SpecializationId { get; set; }
+		public decimal TheoryCredits { get; set; }
+		public decimal PracticeCredits { get; set; }
+		public DateTime CreateAt { get; set; }= DateTime.Now;
+		public string? UpdateAt { get; set; }
 		public Guid? DepartmentId { get; set; }
-		public Specializations? Specialization { get; set; }
-		public Departments? Department { get; set; }   
+		public Status Status { get; set; }
+		public Departments? Department { get; set; }
 		public ICollection<CurriculumSubjects> CurriculumSubjects { get; set; } = new List<CurriculumSubjects>();
 		public ICollection<Prerequisites> Prerequisites { get; set; } = new List<Prerequisites>();
 		public ICollection<CourseSections> CourseSections { get; set; } = new List<CourseSections>();

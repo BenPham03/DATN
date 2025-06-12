@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav [active]="'account'" [hideAccountMenu]="isAdmin"></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Bộ Môn</h1>
+    <app-add-account></app-add-account>
+    
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên tài khoản</th>
+        <th>Email</th>
+        <th>Quyền</th>
+        <th>Thay đổi mật khẩu</th>
+        <th>Cấp quyền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let account of accounts">
+        <td>{{account.username}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.roles}}</td>
+        <td style="text-align: center;" (click)="resetPassword(account)"><button class="commonButton">Reset mật khẩu</button></td>
+        <td style="text-align: center;">
+         <app-assign-role  [AsignRoleM]="account"></app-assign-role>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

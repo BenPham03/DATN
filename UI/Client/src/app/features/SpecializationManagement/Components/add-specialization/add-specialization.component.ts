@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MajorService } from '../../../MajorManagement/services/major-service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { commonDto } from '../../../../core/Common/Status';
 
 @Component({
   selector: 'app-add-specialization',
@@ -23,14 +24,16 @@ isModalOpen = false;
   }
 
   major: MajorDto[] = [];
-
+statusCm: commonDto ={
+    status :[0]
+  }
   constructor(private specializationService : SpecializationService,
     private majorService : MajorService,
     private router : Router
   ) { }
-
+  
   ngOnInit(){
-    this.majorService.getAllMajor().subscribe((data:any) =>{
+    this.majorService.getAllMajor(this.statusCm).subscribe((data:any) =>{
       this.major = data.items 
       console.log(this.major)
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Base_Url } from '../../../app.config';
 import { GetSepecializationResponse, SpecializationCreateDto, SpecializationDeleteDto, SpecializationDto, SpecializationUpdateDto } from '../models/SpecializationDto';
 import { MajorDto } from '../../MajorManagement/models/Major';
+import { commonDto } from '../../../core/Common/Status';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ import { MajorDto } from '../../MajorManagement/models/Major';
 export class SpecializationService {
 
   constructor(private http : HttpClient) { }
-  getAllSpecialization():Observable<GetSepecializationResponse>{
-    return this.http.get<GetSepecializationResponse>(`${Base_Url}/specialization/getallspecialization`);
+  getAllSpecialization(common : commonDto):Observable<GetSepecializationResponse>{
+    return this.http.post<GetSepecializationResponse>(`${Base_Url}/specialization/getallspecialization`, common);
   }
   addSpecialization(Specialization : SpecializationCreateDto):Observable<any>{
     return this.http.post<any>(`${Base_Url}/specialization/add-specialization`,Specialization);

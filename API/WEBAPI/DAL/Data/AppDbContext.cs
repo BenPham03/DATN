@@ -83,15 +83,6 @@ namespace DAL.Data
 				.HasForeignKey(s => s.MajorId)
 				.OnDelete(DeleteBehavior.SetNull); //Set MajorId in Specializations table null when delete Majors
 
-			// ------------------- Specializations Configuration -------------
-
-			//Specializations -> Subjects
-			builder.Entity<Specializations>()
-				.HasMany(sp => sp.Subjects)
-				.WithOne(s => s.Specialization)
-				.HasForeignKey(s => s.SpecializationId)
-				.OnDelete(DeleteBehavior.SetNull);  //Set SpecializationId in Subjects table null when delete Specialization
-
 			// -------------------- Subjects Configuration --------------------
 
 			//Subjects -> CourseSections
@@ -145,6 +136,34 @@ namespace DAL.Data
 
 			builder.Entity<Lectures>()
 				.Property(l => l.Position)
+				.HasConversion<string>();
+
+			builder.Entity<Curriculum>()
+				.Property(l => l.OutputStandard)
+				.HasConversion<string>();
+
+			builder.Entity<Curriculum>()
+				.Property(l => l.Status)
+				.HasConversion<string>();
+
+			builder.Entity<Departments>()
+				.Property(l => l.Status)
+				.HasConversion<string>();
+
+			builder.Entity<Faculties>()
+				.Property(l => l.Status)
+				.HasConversion<string>();
+
+			builder.Entity<Majors>()
+				.Property(l => l.Status)
+				.HasConversion<string>();
+
+			builder.Entity<Specializations>()
+				.Property(l => l.Status)
+				.HasConversion<string>();
+
+			builder.Entity<Subjects>()
+				.Property(l => l.Status)
 				.HasConversion<string>();
 		}
 	}

@@ -27,6 +27,7 @@ namespace BLL.Mapper
 				Name = dto.Name,
 				Description = dto.Description,
 				FacultyId = dto.FacultyId,
+				Status = dto.Status
 			};
 		}
 		public static Departments ToDepartmentFromDeleteDto(this DeleteDepartmentRequestDto dto)
@@ -37,6 +38,7 @@ namespace BLL.Mapper
 				Name = dto.Name,
 				Description = dto.Description,
 				FacultyId = dto.FacultyId,
+				Status = dto.Status
 			};
 		}
 	}

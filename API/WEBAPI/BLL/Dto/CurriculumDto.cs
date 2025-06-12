@@ -1,10 +1,5 @@
 ﻿using DAL.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Dto
 {
@@ -16,8 +11,10 @@ namespace BLL.Dto
 		[Required(ErrorMessage = "AcademicYear cannot null")]
 		[MaxLength(9, ErrorMessage = "Max length is 9")]
 		public string AcademicYear { get; set; }
-		[Required(ErrorMessage = "Major Id cannot null")]
-		public Guid? MajorId { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public Guid? SpecializationId { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public OutputStandard OutputStandard { get; set; }
 	}
 	public class CurriculumUpdateDto
 	{
@@ -29,8 +26,11 @@ namespace BLL.Dto
 		[Required(ErrorMessage = "AcademicYear cannot null")]
 		[MaxLength(9, ErrorMessage = "Max length is 9")]
 		public string AcademicYear { get; set; }
-		[Required(ErrorMessage = "Major Id cannot null")]
-		public Guid? MajorId { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public Guid? SpecializationId { get; set; }
+		public Status Status { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public OutputStandard OutputStandard { get; set; }
 	}
 	public class CurriculumDeleteDto
 	{
@@ -42,7 +42,18 @@ namespace BLL.Dto
 		[Required(ErrorMessage = "AcademicYear cannot null")]
 		[MaxLength(9, ErrorMessage = "Max length is 9")]
 		public string AcademicYear { get; set; }
-		[Required(ErrorMessage = "Major Id cannot null")]
-		public Guid? MajorId { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public Guid? SpecializationId { get; set; }
+		public Status Status { get; set; }
+		[Required(ErrorMessage = "Specialization Id cannot null")]
+		public OutputStandard OutputStandard { get; set; }
+	}
+	public class CurriculumDto
+	{
+		public Guid Id { get; set; }
+		public int Semester { get; set; }
+		public string SubjectCode { get; set; }
+		public string SubjectName { get; set; }
+		public decimal Credits { get; set; }
 	}
 }

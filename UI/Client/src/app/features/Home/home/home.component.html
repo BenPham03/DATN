@@ -1,4 +1,37 @@
 <app-header></app-header>
 <div style="display: flex;">
-    <app-nav></app-nav>
+    <app-nav [active]="'home'"></app-nav>
 <div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các chương trình đào tạo</h1>
+    <div class="form-group">
+        <select id="curriculum" name="curriculum" required (change)="onSelectChange($event)">
+          <option value="">-- Chương trình đào tạo --</option>
+          <option *ngFor="let d of curriculum" [value]="d.id" name = "curriculum">{{ d.name }} </option>
+        </select>
+      </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Học kỳ</th>
+        <th>Mã môn học</th>
+        <th>Tên môn học</th>
+        <th>Số tín chỉ</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of curriculumDetail; let i = index">
+            <td>{{ i + 1 }}</td> <!-- STT from 1 -->
+            <td>{{ c.semester }}</td>
+            <td>{{ c.subjectCode }}</td>
+            <td>{{ c.subjectName }}</td>
+            <td>{{ c.credits }}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
