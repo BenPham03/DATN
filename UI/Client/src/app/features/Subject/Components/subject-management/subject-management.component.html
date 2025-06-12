@@ -17,6 +17,7 @@
         <th>Số tín chỉ lý thuyết</th>
         <th>Số tín chỉ thực hành</th>
         <th>Bộ môn</th>
+        <th>Trạng thái</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
@@ -28,6 +29,7 @@
         <td>{{subject.theoryCredits}}</td>
         <td>{{subject.practiceCredits}}</td>
         <td>{{subject.department.name}}</td>
+        <td>{{ subject.status === 0 ? 'Active' : 'Inactive' }}</td>
         <td style="text-align: center;">
           <app-update-subject  [SubjectM]="subject"></app-update-subject>
         </td>

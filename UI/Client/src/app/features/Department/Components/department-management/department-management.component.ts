@@ -49,17 +49,24 @@ export class DepartmentManagementComponent {
       description: deleteDepartment.description,
       status: deleteDepartment.status
     }
-    this.departmentService.deleteDepartment(this.deleteDepartmentModel).subscribe((data: any) =>{
-      console.log(data)
-    });
-    console.log('Department được update:', this.deleteDepartment);
-    // Gửi dữ liệu lên server tại đây nếu cần
-    
-    // Reset form nếu cần
-    // this.Department = { name: '', description: '', facultyId: '' };
+    this.departmentService.deleteDepartment(this.deleteDepartmentModel).subscribe({
+  next: () => {
+    // Xử lý khi xóa thành công (NoContent - 204)
+    alert('Department deleted successfully');
+  },
+  error: (err) => {
+    if (err.status === 400) {
+      // Nếu backend trả về BadRequest với thông báo lỗi
+      const errorMessage = typeof err.error === 'string' ? err.error : 'Invalid request';
+      alert(errorMessage); // Hiển thị thông báo lỗi
+    } else {
+      alert('An unexpected error occurred');
+    }
+  }
+});
 
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/department']);
+    this.departmentService.getAllDepartment(this.statusCm).subscribe((data:any) =>{
+      this.departments = data.items
     });
   }
 }

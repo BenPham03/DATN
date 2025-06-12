@@ -10,6 +10,7 @@ import { CurriculumSubjectManagementComponent } from './features/CuriculumSubjec
 import { LoginComponent } from './features/Account/Components/login/login.component';
 import { AccountComponent } from './features/Admin/Components/account/account.component';
 import { adminGuard, adminOrDeanGuard } from './features/Account/guards/auth.guard';
+import { FacultyComponent } from './features/Faculty/Components/faculty/faculty.component';
 
 export const routes: Routes = [
     {
@@ -63,5 +64,9 @@ export const routes: Routes = [
         path: 'account',
         component: AccountComponent,
          canActivate: [adminGuard], // chỉ admin được vào
+    },
+    {
+        path: 'faculty',
+        component: FacultyComponent,
     }
 ];

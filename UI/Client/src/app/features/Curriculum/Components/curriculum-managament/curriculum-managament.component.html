@@ -16,6 +16,7 @@
         <th>Năm học</th>
         <th>Chuyên ngành</th>
         <th>Chuẩn đầu ra</th>
+        <th>Trạng thái</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
@@ -26,6 +27,7 @@
         <td>{{curriculum.academicYear}}</td>
         <td>{{curriculum.specialization.name}}</td>
         <td>{{outputStandard[curriculum.outputStandard]}}</td>
+        <td>{{ curriculum.status === 0 ? 'Active' : 'Inactive' }}</td>
         <td style="text-align: center;">
           <app-update-curriculum  [curriculumM]="curriculum"></app-update-curriculum>
         </td>

@@ -5,6 +5,8 @@ import { DepartmentService } from '../../service/department.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { commonDto } from '../../../../core/Common/Status';
+import { FacultyService } from '../../../Faculty/Services/faculty.service';
 
 @Component({
   selector: 'app-add-department',
@@ -20,15 +22,18 @@ export class AddDepartmentComponent {
     name: "",
     description: "",
   }
-
+statusCm: commonDto ={
+      status :[0]
+    }
   faculties: Faculty[] = [];
 
   constructor(private departmentService : DepartmentService,
+    private facultyService : FacultyService,
     private router : Router
   ) { }
 
   ngOnInit(){
-    this.departmentService.getAllFaculty().subscribe((data:any) =>{
+    this.facultyService.getAllFaculty(this.statusCm).subscribe((data:any) =>{
       this.faculties = data.items 
       console.log(this.faculties)
 

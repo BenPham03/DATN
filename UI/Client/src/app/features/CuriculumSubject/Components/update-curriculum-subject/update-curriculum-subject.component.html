@@ -1,11 +1,11 @@
 <!-- Nút mở modal -->
-<button (click)="openModal()" class="open-btn">Sửa bộ môn</button>
+<button (click)="openModal()" class="open-btn">Sửa môn học chương trình đào tạo</button>
 
 <!-- Modal -->
 <div class="modal" [class.show]="isModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <h2 style="color:black">Sửa bộ môn</h2>
+    <h2 style="color:black">Sửa môn học chương trình đào tạo</h2>
     <form (submit)="onSubmit()">
       <div class="form-group" >
         <label for="curriculum">Chương trình đào tạo</label>

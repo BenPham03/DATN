@@ -341,12 +341,50 @@
   },
   {
     "ContainingType": "WEBAPI.Controllers.FacultyController",
-    "Method": "Get",
-    "RelativePath": "faculty/get-faculty",
-    "HttpMethod": "GET",
+    "Method": "Delete",
+    "RelativePath": "faculty/deleteFaculty",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.Faculty.DeleteFaculties",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.FacultyController",
+    "Method": "Get",
+    "RelativePath": "faculty/get-faculty",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "BLL.Dto.CommonDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WEBAPI.Controllers.FacultyController",
+    "Method": "Update",
+    "RelativePath": "faculty/updateFaculty",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BLL.Dto.Faculty.UpdateFaculties",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

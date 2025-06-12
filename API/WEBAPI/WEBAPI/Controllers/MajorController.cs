@@ -11,10 +11,12 @@ namespace WEBAPI.Controllers
 	public class MajorController :  ControllerBase
 	{
 		private readonly MajorService _majorService;
+		private readonly SpecializationService _specializationService;
 
-		public MajorController(MajorService majorService)
+		public MajorController(MajorService majorService, SpecializationService specializationService)
 		{
 			_majorService = majorService;
+			_specializationService = specializationService;
 		}
 
 		[HttpPost("get-all-major")]
@@ -55,6 +57,11 @@ namespace WEBAPI.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
+			}
+			var specialization = await _specializationService.GetAsync(filter: e => e.MajorId == model.Id);
+			if(specialization.Items.Count() > 0)
+			{
+				return BadRequest("Cannot delete Major with existing specializations. Please delete the specializations first.");
 			}
 			var major = model.ToMajorFromDelete();
 			await _majorService.DeleteAsync(major);

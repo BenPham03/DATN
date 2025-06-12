@@ -1,6 +1,7 @@
 ﻿using BLL.Dto;
 using BLL.Mapper;
 using BLL.Services;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WEBAPI.Controllers
@@ -10,10 +11,12 @@ namespace WEBAPI.Controllers
 	public class SpecializationController : ControllerBase
 	{
 		private readonly SpecializationService _specializationService;
+		private readonly CurriculumService _curriculumService;
 
-		public SpecializationController(SpecializationService specializationService)
+		public SpecializationController(SpecializationService specializationService, CurriculumService curriculumService)
 		{
 			_specializationService = specializationService;
+			_curriculumService = curriculumService;
 		}
 		[HttpPost("getallspecialization")]
 		public async Task<IActionResult> GetAll([FromBody] CommonDto status)
@@ -52,6 +55,11 @@ namespace WEBAPI.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
+			}
+			var curriculums = await _curriculumService.GetAsync(filter: e => e.SpecializationId == dto.Id);
+			if (curriculums.Items.Count() > 0)
+			{
+				return BadRequest("Cannot delete specialization with existing curriculums. Please delete the curriculums first.");
 			}
 			var entity = dto.ToSpecializationFromDelete();
 			var result = await _specializationService.DeleteAsync(entity);

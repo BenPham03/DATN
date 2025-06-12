@@ -16,6 +16,7 @@
               <th>Tên chuyên ngành</th>
               <th>Mô tả</th>
               <th>Ngành</th>
+              <th>Trạng thái</th>
               <th>Sửa</th>
               <th>Xóa</th>
             </tr>
@@ -25,6 +26,7 @@
               <td>{{specialization.name}}</td>
               <td>{{specialization.description}}</td>
               <td>{{specialization.major?.name}}</td>
+              <td>{{ specialization.status === 0 ? 'Active' : 'Inactive' }}</td>
               <td style="text-align: center;">
                 <app-update-specialization  [specializationI]="specialization"></app-update-specialization>
               </td>

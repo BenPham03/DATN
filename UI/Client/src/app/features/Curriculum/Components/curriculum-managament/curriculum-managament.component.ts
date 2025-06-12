@@ -38,6 +38,10 @@ outputStandard = outputStandard
     });
   }
 
+  goToDetail(curriculumId : string){
+      this.router.navigate([`/curriculumSubject/${curriculumId}`]);
+  }
+
   deleteMajor(deleteCurriculum: CurriculumDto) {
     this.deleteCurriculumModel = {
       id: deleteCurriculum.id,
@@ -47,20 +51,24 @@ outputStandard = outputStandard
       status: deleteCurriculum.status,
       outputStandard: deleteCurriculum.outputStandard
     }
-    this.curriculumService.deleteCurriculum(this.deleteCurriculumModel).subscribe((data: any) =>{
-      console.log(data)
-    });
-    console.log('Curiculum đã xóa', this.deleteMajor);
-    // Gửi dữ liệu lên server tại đây nếu cần
-    
-    // Reset form nếu cần
-    // this.major = { name: '', description: '', facultyId: '' };
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/curriculum']);
-    });
+    this.curriculumService.deleteCurriculum(this.deleteCurriculumModel).subscribe({
+  next: () => {
+    // Xử lý khi xóa thành công (NoContent - 204)
+    alert('Curriculum deleted successfully');
+  },
+  error: (err) => {
+    if (err.status === 400) {
+      // Nếu backend trả về BadRequest với thông báo lỗi
+      const errorMessage = typeof err.error === 'string' ? err.error : 'Invalid request';
+      alert(errorMessage); // Hiển thị thông báo lỗi
+    } else {
+      alert('An unexpected error occurred');
+    }
   }
-  goToDetail(id : string){
-    this.router.navigate(['/curriculumSubject', id]);
+});
+
+    this.curriculumService.getAllCurriculum().subscribe((data:any) =>{
+      this.curriculums = data.items
+    });
   }
 }

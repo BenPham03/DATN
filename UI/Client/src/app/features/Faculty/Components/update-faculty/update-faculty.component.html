@@ -1,0 +1,34 @@
+<!-- Nút mở modal -->
+<button (click)="openModal()" class="open-btn">Update môn học</button>
+
+<!-- Modal -->
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Thêm khoa mới</h2>
+
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Tên khoa</label>
+        <input type="text" id="name" [(ngModel)]="faculty.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <input type="text" id="description" [(ngModel)]="faculty.description" name="description" required>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Trạng thái</label>
+        <select id="status" [(ngModel)]="faculty.status" name="status" required class="form-control">
+          <option value="">-- Trạng thái --</option>
+          <option [value]=status.Active name = "status">Active</option>
+          <option [value]=status.Inactive name = "status">Inactive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>

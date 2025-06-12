@@ -15,6 +15,7 @@
         <th>Tên bộ môn</th>
         <th>Mô tả</th>
         <th>Khoa</th>
+        <th>Trạng thái</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
@@ -24,6 +25,7 @@
         <td>{{department.name}}</td>
         <td>{{department.description}}</td>
         <td>{{department.faculty.name}}</td>
+        <td>{{ department.status === 0 ? 'Active' : 'Inactive' }}</td>
         <td style="text-align: center;">
           <app-update-department  [DepartmentM]="department"></app-update-department>
         </td>

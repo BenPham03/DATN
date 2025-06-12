@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { MajorCreateDto } from '../../models/Major';
 import { Faculty } from '../../models/Faculty';
 import { MajorService } from '../../services/major-service.service';
+import { commonDto } from '../../../../core/Common/Status';
+import { FacultyService } from '../../../Faculty/Services/faculty.service';
 
 @Component({
   selector: 'app-add-major',
@@ -21,15 +23,18 @@ export class AddMajorComponent {
     majorCode: "",
     description: "",
   }
-
+statusCm: commonDto ={
+      status :[0]
+    }
   faculties: Faculty[] = [];
 
   constructor(private majorService : MajorService,
+    private facultyService : FacultyService,
     private router : Router
   ) { }
 
   ngOnInit(){
-    this.majorService.getAllFaculty().subscribe((data:any) =>{
+    this.facultyService.getAllFaculty(this.statusCm).subscribe((data:any) =>{
       this.faculties = data.items 
       console.log(this.faculties)
 

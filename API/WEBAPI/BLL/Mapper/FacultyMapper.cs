@@ -18,5 +18,25 @@ namespace BLL.Mapper
 				Description = faculties.Description,
 			};
 		}
+		public static Faculties ToFacultyFromUpdate(this UpdateFaculties faculties)
+		{
+			return new Faculties
+			{
+				Id = faculties.Id,
+				Name = faculties.Name,
+				Description = faculties.Description,
+				Status = faculties.Status
+			};
+		}
+		public static Faculties ToFacultyFromDelete(this DeleteFaculties faculties)
+		{
+			return new Faculties
+			{
+				Id = faculties.Id,
+				Name = faculties.Name,
+				Description = faculties.Description,
+				Status = faculties.Status
+			};
+		}
 	}
 }

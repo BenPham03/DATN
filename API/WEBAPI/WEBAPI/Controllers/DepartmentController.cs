@@ -1,6 +1,7 @@
 ﻿using BLL.Dto;
 using BLL.Mapper;
 using BLL.Services;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WEBAPI.Controllers
@@ -10,10 +11,12 @@ namespace WEBAPI.Controllers
 	public class DepartmentController : ControllerBase
 	{
 		private readonly DepartmentService _departmentService;
+		private readonly SubjectService _subjectService;
 
-		public DepartmentController(DepartmentService departmentService)
+		public DepartmentController(DepartmentService departmentService, SubjectService subjectService)
 		{
 			_departmentService = departmentService;
+			_subjectService = subjectService;
 		}
 		[HttpPost("get-all")]
 		public async Task<IActionResult> GetAll([FromBody] CommonDto status)
@@ -52,6 +55,11 @@ namespace WEBAPI.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
+			}
+			var subjects = await _subjectService.GetAsync(filter: e => e.DepartmentId == model.Id);
+			if (subjects.Items.Count() > 0)
+			{
+				return BadRequest("Cannot delete department with existing subjects. Please delete the subjects first.");
 			}
 			var updateDepartment = model.ToDepartmentFromDeleteDto();
 			var result = await _departmentService.DeleteAsync(updateDepartment);

@@ -16,6 +16,7 @@
         <th>Mô tả</th>
         <th>Mã ngành</th>
         <th>Khoa</th>
+        <th>Trạng thái</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
@@ -26,6 +27,7 @@
         <td>{{major.description}}</td>
         <td>{{major.majorCode}}</td>
         <td>{{major.faculty.name}}</td>
+        <td>{{ major.status === 0 ? 'Active' : 'Inactive' }}</td>
         <td style="text-align: center;">
           <app-update-major  [majorM]="major"></app-update-major>
         </td>

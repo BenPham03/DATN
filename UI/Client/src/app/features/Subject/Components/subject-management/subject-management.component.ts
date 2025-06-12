@@ -53,17 +53,23 @@ export class SubjectManagementComponent {
       departmentId :deleteSubject.departmentId,
       status: deleteSubject.status
     }
-    this.subjectService.deleteSubject(this.deleteSubjectModel).subscribe((data: any) =>{
-      console.log(data)
-    });
-    console.log('Department được update:', this.deleteSubjectModel);
-    // Gửi dữ liệu lên server tại đây nếu cần
-    
-    // Reset form nếu cần
-    // this.Department = { name: '', description: '', facultyId: '' };
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/subject']);
+    this.subjectService.deleteSubject(this.deleteSubjectModel).subscribe({
+  next: () => {
+    // Xử lý khi xóa thành công (NoContent - 204)
+    alert('Subject deleted successfully');
+  },
+  error: (err) => {
+    if (err.status === 400) {
+      // Nếu backend trả về BadRequest với thông báo lỗi
+      const errorMessage = typeof err.error === 'string' ? err.error : 'Invalid request';
+      alert(errorMessage); // Hiển thị thông báo lỗi
+    } else {
+      alert('An unexpected error occurred');
+    }
+  }
+});
+    this.subjectService.getAllSubject(this.statusCm).subscribe((data:any) =>{
+      this.subjects = data.items
     });
   }
 }

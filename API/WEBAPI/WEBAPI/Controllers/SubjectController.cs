@@ -10,10 +10,12 @@ namespace WEBAPI.Controllers
 	public class SubjectController : ControllerBase
 	{
 		private readonly SubjectService _subjectService;
+		private readonly CurriculumSubjectService _curriculumSubjectService;
 
-		public SubjectController(SubjectService subjectService)
+		public SubjectController(SubjectService subjectService, CurriculumSubjectService curriculumSubjectService)
 		{
 			_subjectService = subjectService;
+			_curriculumSubjectService = curriculumSubjectService;
 		}
 		[HttpPost("get-all")]
 		public async Task<IActionResult> GetAll([FromBody] CommonDto common)
@@ -52,6 +54,11 @@ namespace WEBAPI.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
+			}
+			var curriculumSubjects = await _curriculumSubjectService.GetAsync(filter: e => e.SubjectId == dto.Id);
+			if (curriculumSubjects.Items.Count() > 0)
+			{
+				return BadRequest("Cannot delete subject with existing curriculum subjects. Please delete the curriculum subjects first.");
 			}
 			var model = dto.ToSubjectFromDeleteDto();
 			var result = await _subjectService.DeleteAsync(model);

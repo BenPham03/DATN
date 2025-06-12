@@ -49,17 +49,24 @@ statusCm: commonDto ={
       description: deleteMajor.description,
       status: deleteMajor.status
     }
-    this.majorService.deleteMajor(this.deleteMajorModel).subscribe((data: any) =>{
-      console.log(data)
-    });
-    console.log('Major được update:', this.deleteMajor);
-    // Gửi dữ liệu lên server tại đây nếu cần
-    
-    // Reset form nếu cần
-    // this.major = { name: '', description: '', facultyId: '' };
+    this.majorService.deleteMajor(this.deleteMajorModel).subscribe({
+  next: () => {
+    // Xử lý khi xóa thành công (NoContent - 204)
+    alert('Major deleted successfully');
+  },
+  error: (err) => {
+    if (err.status === 400) {
+      // Nếu backend trả về BadRequest với thông báo lỗi
+      const errorMessage = typeof err.error === 'string' ? err.error : 'Invalid request';
+      alert(errorMessage); // Hiển thị thông báo lỗi
+    } else {
+      alert('An unexpected error occurred');
+    }
+  }
+});
 
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/majorManagement']);
+    this.majorService.getAllMajor(this.statusCm).subscribe((data:any) =>{
+      this.majors = data.items
     });
   }
 }

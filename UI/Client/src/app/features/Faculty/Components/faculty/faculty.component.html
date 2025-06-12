@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div style="display: flex;">
+    <app-nav [active]="'faculty'"></app-nav>
+<div style="flex: 1;">
+<div id="container">
+  <div class="title-bar">
+    <h1 class="title">Bảng Thông Tin Các Khoa</h1>
+    <app-add-faculty></app-add-faculty>
+    
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên khoa</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let faculty of faculties">
+        <td>{{faculty.name}}</td>
+        <td>{{faculty.description}}</td>
+        <td>{{ faculty.status === 0 ? 'Active' : 'Inactive' }}</td>
+        <td style="text-align: center;">
+          <app-update-faculty  [FacultyM]="faculty"></app-update-faculty>
+        </td>
+        <td style="text-align: center;" (click)="deleteSubject(faculty)"><button class="deleteButton">Xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

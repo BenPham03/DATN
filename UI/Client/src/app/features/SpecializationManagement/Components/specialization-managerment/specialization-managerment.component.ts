@@ -28,6 +28,7 @@ export class SpecializationManagermentComponent {
   statusCm: commonDto ={
       status :[0,1]
     }
+    
 
   constructor(private specializationService : SpecializationService,
    private router : Router
@@ -51,17 +52,24 @@ export class SpecializationManagermentComponent {
       status: deleteSpecialization.status
     }
     console.log(this.deleteSpecializationModel)
-    this.specializationService.deleteSpecialization(this.deleteSpecializationModel).subscribe((data: any) =>{
-      console.log(data)
-    });
-    console.log('Specialization được update:', this.deleteSpecializationModel);
-    // Gửi dữ liệu lên server tại đây nếu cần
-    
-    // Reset form nếu cần
-    // this.major = { name: '', description: '', facultyId: '' };
+    this.specializationService.deleteSpecialization(this.deleteSpecializationModel).subscribe({
+  next: () => {
+    // Xử lý khi xóa thành công (NoContent - 204)
+    alert('Specialization deleted successfully');
+  },
+  error: (err) => {
+    if (err.status === 400) {
+      // Nếu backend trả về BadRequest với thông báo lỗi
+      const errorMessage = typeof err.error === 'string' ? err.error : 'Invalid request';
+      alert(errorMessage); // Hiển thị thông báo lỗi
+    } else {
+      alert('An unexpected error occurred');
+    }
+  }
+});
 
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/specialization']);
+    this.specializationService.getAllSpecialization(this.statusCm).subscribe((data:any) =>{
+      this.specializationService = data.items
     });
   }
 }

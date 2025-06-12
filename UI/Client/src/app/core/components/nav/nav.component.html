@@ -1,9 +1,9 @@
 <div class="nav">
-    <div class="search-box">
+    <!-- <div class="search-box">
       <input type="text" placeholder="Tìm kiếm…" />
       <button><i class="fa fa-search">
       </i></button>
-    </div>
+    </div> -->
   
     <div class="menu">
       <div
@@ -71,6 +71,16 @@
       >
         <i class="fa fa-tachometer-alt"></i> Quản lý môn học chương trình giảng dạy
         <span class="arrow" *ngIf="activeMenu === 'curriculumSubject'"></span>
+      </div>
+      <div
+        class="menu-item"
+        [class.active]="activeMenu === 'faculty'"
+        [routerLink]="['/faculty']"
+        *ngIf="isAdmin"
+
+      >
+        <i class="fa fa-tachometer-alt"></i> Quản lý khoa
+        <span class="arrow" *ngIf="activeMenu === 'faculty'"></span>
       </div>
 
       <div
